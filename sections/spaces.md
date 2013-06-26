@@ -60,3 +60,18 @@ Creating a space
 ```
 
 Upon success, `201 Created` will be returend with the location of the new space in the `Location` header along with the current JSON representation of the space (See the **Get space** endpoint for more info).
+
+
+Update space
+---------------
+
+* `PUT /spaces/1.json` will update the space from the JSON parameters sent.
+
+```json
+{
+  "name": "This is a new name for the project!",
+  "description": "And a new description..."
+}
+```
+
+Upon success, `200 OK` will be returend along with the current JSON representation of the space (See the **Get space** endpoint for more info). If the user does not have access to update the project, you'll see `403 Forbidden`.
