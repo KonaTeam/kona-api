@@ -74,4 +74,4 @@ Update space
 }
 ```
 
-Upon success, `200 OK` will be returend along with the current JSON representation of the space (See the **Get space** endpoint for more info). If the user does not have access to update the project, you'll see `403 Forbidden`.
+Upon success, `200 OK` will be returend along with the current JSON representation of the space (See the **Get space** endpoint for more info). If the user does not have access to update the space, you'll see `403 Forbidden`.
