@@ -14,12 +14,32 @@ Get spaces
     "details":"This space allows you to capture reminders that may not fit neatly into a space of their own. For example: 'Remember the dry cleaning', 'Schedule my dentist appointment', or 'Need to buy a gift for the birthday party Brian is attending'.",
     "updated_at":1372091715000,
     "picture_thumb":"/kona/images/defaultproject.png"
+    "href":"https://api.kona.com/spaces/1"
   },{
     "id":2,
     "name":"Neightborhood HOA",
     "details":"Where we discuss our nieghborhood",
     "updated_at":1372091733000,
     "picture_thumb":"/kona/images/defaultproject.png"
+    "href":"https://api.kona.com/spaces/2"
   }]
+}
+```
+
+Get space
+-----------
+
+* `GET /spaces/2` will return the specified space.
+
+```json
+{
+  "spaces": [{
+    "id": 5,
+    "name": "Evil League of Evil Network",
+    "details": "Dedicate to lies, injustice and the criminal way",
+    "updated_at": 1372091746000,
+    "picture_thumb": "/kona/images/defaultproject.png",
+    "href": "http://localhost:3000/api/spaces/5",
+  }]
 }
 ```
