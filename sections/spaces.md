@@ -69,8 +69,8 @@ Update space
 
 ```json
 {
-  "name": "This is a new name for the project!",
-  "description": "And a new description..."
+  "name": "New Space Name",
+  "details": "And some new deets"
 }
 ```
 
