@@ -74,4 +74,12 @@ Update space
 }
 ```
 
-Upon success, `200 OK` will be returend along with the current JSON representation of the space (See the **Get space** endpoint for more info). If the user does not have access to update the space, you'll see `403 Forbidden`.
+Upon success, `200 OK` will be returend along with the current JSON representation of the space (See the **Get space** endpoint for more info). If the user does not have access to update the space, you'll receive `403 Forbidden`.
+
+
+Delete space
+---------------
+
+* `DELETE /spaces/1.json` will delete the space from the id sent.
+
+Upon success, `204 No Content` will be returend. If the user does not have access to delete the space, you'll receive `403 Forbidden`.
