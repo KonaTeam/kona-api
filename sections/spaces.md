@@ -44,7 +44,7 @@ Get space
 }
 ```
 
-Creating a space
+Create space
 -----------
 
 * `POST /spaces` will return the created space based on the JSON request sent.
