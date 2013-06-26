@@ -11,7 +11,7 @@ Get spaces
   "spaces":[{
     "id":1,
     "name":"Just for Me",
-    "details":"This space allows you to capture reminders that may not fit neatly into a space of their own. For example: 'Remember the dry cleaning', 'Schedule my dentist appointment', or 'Need to buy a gift for the birthday party Brian is attending'.",
+    "details":"This space allows you to capture reminders that may not fit neatly into a space of their own. For example: "Remember the dry cleaning", "Schedule my dentist appointment", or "Need to buy a gift for the birthday party Brian is attending".",
     "updated_at":1372091715000,
     "picture_thumb":"/kona/images/defaultproject.png"
     "href":"https://api.kona.com/spaces/1"
@@ -78,7 +78,7 @@ Update space
 }
 ```
 
-Upon success, `200 OK` will be returend along with the current JSON representation of the space (See the **Get space** endpoint for more info). If the user does not have access to update the space, you'll receive `403 Forbidden`.
+Upon success, `200 OK` will be returend along with the current JSON representation of the space (See the **Get space** endpoint for more info). If the user does not have access to update the space, you"ll receive `403 Forbidden`.
 
 
 Delete space
@@ -86,7 +86,7 @@ Delete space
 
 * `DELETE /spaces/:id` will delete the space from the id sent.
 
-Upon success, `204 No Content` will be returend. If the user does not have access to delete the space, you'll receive `403 Forbidden`.
+Upon success, `204 No Content` will be returend. If the user does not have access to delete the space, you"ll receive `403 Forbidden`.
 
 
 Invite to space
@@ -96,9 +96,9 @@ Invite to space
 
 ```json
 {
-  "users": [{"email": 'frank@example.com'},
-             {"email": 'pete@example.com'}],
-  "message": 'Welcome to the space!'
+  "users": [{"email": "frank@example.com"},
+             {"email": "pete@example.com"}],
+  "message": "Welcome to the space!"
 }
 ```
 
@@ -116,7 +116,7 @@ Upon success, `200 OK` will be returned along with a response that looks like th
     "email": "john@example.com", 
     "name": "john", 
     "status": "created", 
-    "invitation_sent"=>true
+    "invitation_sent":true
   }]
 }
 ```
@@ -128,4 +128,4 @@ Remove from space
 * `DELETE /spaces/:space_id/users/:email` will allow users to be removed from a space.
 
 
-Upon success, `204 No Content` will be returned.  If the user does not have permission to revoke a users space membership, you'll receive `403 Forbidden`.
+Upon success, `204 No Content` will be returned.  If the user does not have permission to revoke a users space membership, you"ll receive `403 Forbidden`.
