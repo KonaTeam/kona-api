@@ -51,10 +51,10 @@ Creating a space
 
 ```json
 {
-  spaces: [{
-    name: "Scout Troop 703",
-    color: "#b373b3",
-    details: "This is the official space for Scout Troop 703"
+  "spaces": [{
+    "name": "Scout Troop 703",
+    "color": "#b373b3",
+    "details": "This is the official space for Scout Troop 703"
   }]
 }
 ```
