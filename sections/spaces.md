@@ -43,3 +43,20 @@ Get space
   }]
 }
 ```
+
+Creating a space
+-----------
+
+* `POST /spaces` will return the created space based on the JSON request sent.
+
+```json
+{
+  spaces: [{
+    name: "Scout Troop 703",
+    color: "#b373b3",
+    details: "This is the official space for Scout Troop 703"
+  }]
+}
+```
+
+Upon success, `201 Created` will be returend with the location of the new space in the `Location` header along with the current JSON representation of the space (See the **Get space** endpoint for more info).
