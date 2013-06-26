@@ -56,7 +56,7 @@ Create space
   "spaces": [{
     "name": "Scout Troop 703",
     "color": "#b373b3",
-    "details": "This is the official space for Scout Troop 703"
+    "details": "This is the official space for Scout Troop 703",
     "overview": "Anything goes but keep it clean!"
   }]
 }
