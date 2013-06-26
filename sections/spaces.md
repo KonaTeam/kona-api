@@ -35,11 +35,11 @@ Get space
 {
   "spaces": [{
     "id": 5,
-    "name": "Evil League of Evil Network",
-    "details": "Dedicate to lies, injustice and the criminal way",
-    "updated_at": 1372091746000,
-    "picture_thumb": "/kona/images/defaultproject.png",
-    "href": "http://localhost:3000/api/spaces/5",
-  }]
+    "name": "Evil League of Evil Network",
+    "details": "Dedicate to lies, injustice and the criminal way",
+    "updated_at": 1372091746000,
+    "picture_thumb": "/kona/images/defaultproject.png",
+    "href": "http://localhost:3000/api/spaces/5",
+  }]
 }
 ```
