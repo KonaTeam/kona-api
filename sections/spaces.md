@@ -19,6 +19,7 @@ Get spaces
     "id":2,
     "name":"Neightborhood HOA",
     "details":"Where we discuss our nieghborhood",
+    "overview":"Please create a new conversation for each HOA issue to be discussed."
     "updated_at":1372091733000,
     "picture_thumb":"/kona/images/defaultproject.png"
     "href":"https://api.kona.com/spaces/2"
@@ -34,12 +35,13 @@ Get space
 ```json
 {
   "spaces": [{
-    "id": 5,
-    "name": "Evil League of Evil Network",
-    "details": "Dedicate to lies, injustice and the criminal way",
-    "updated_at": 1372091746000,
-    "picture_thumb": "/kona/images/defaultproject.png",
-    "href": "http://localhost:3000/api/spaces/5",
+    "id": 2,
+    "name":"Neightborhood HOA",
+    "details":"Where we discuss our nieghborhood",
+    "overview":"Please create a new conversation for each HOA issue to be discussed."
+    "updated_at":1372091733000,
+    "picture_thumb":"/kona/images/defaultproject.png"
+    "href":"https://api.kona.com/spaces/2"
   }]
 }
 ```
@@ -55,6 +57,7 @@ Create space
     "name": "Scout Troop 703",
     "color": "#b373b3",
     "details": "This is the official space for Scout Troop 703"
+    "overview": "Anything goes but keep it clean!"
   }]
 }
 ```
@@ -70,7 +73,8 @@ Update space
 ```json
 {
   "name": "New Space Name",
-  "details": "And some new deets"
+  "details": "And some new deets",
+  "overview": "And some guidance on how to use this space"
 }
 ```
 
