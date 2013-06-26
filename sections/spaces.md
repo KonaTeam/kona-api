@@ -30,7 +30,7 @@ Get spaces
 Get space
 -----------
 
-* `GET /spaces/2` will return the specified space.
+* `GET /spaces/:id` will return the specified space.
 
 ```json
 {
@@ -68,7 +68,7 @@ Upon success, `201 Created` will be returend with the location of the new space 
 Update space
 ---------------
 
-* `PUT /spaces/1.json` will update the space from the JSON parameters sent.
+* `PUT /spaces/:id` will update the space from the JSON parameters sent.
 
 ```json
 {
@@ -84,6 +84,46 @@ Upon success, `200 OK` will be returend along with the current JSON representati
 Delete space
 ---------------
 
-* `DELETE /spaces/1.json` will delete the space from the id sent.
+* `DELETE /spaces/:id` will delete the space from the id sent.
 
 Upon success, `204 No Content` will be returend. If the user does not have access to delete the space, you'll receive `403 Forbidden`.
+
+
+Invite to space
+---------------
+
+* `POST /spaces/:id/invite` will allow people to be invited to a space.
+
+```json
+{
+  "users": [{"email": 'frank@example.com'},
+             {"email": 'pete@example.com'}],
+  "message": 'Welcome to the space!',
+}
+```
+
+Upon success, `200 OK` will be returned along with a response that looks like this:
+
+```json
+{
+  "users":[{
+    "id": 1,
+    "email": "frank@example.com", 
+    "name": "frank", 
+    "status": "created", 
+    "invitation_sent": true
+    },{
+    "email": "john@example.com", 
+    "name": "john", 
+    "status": "created", 
+    "invitation_sent"=>true
+  }]
+}
+```
+
+Remove from space
+---------------
+
+* `DELETE /spaces/:id/revoke/:user_id` will allow people to be invited to a space.
+
+Upon success, `204 No Content` will be returned.  If the user does not have permission to revoke a users space membership, you'll receive `403 Forbidden`.
