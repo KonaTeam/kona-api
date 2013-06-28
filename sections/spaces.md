@@ -113,6 +113,7 @@ Upon success, `200 OK` will be returned along with a response that looks like th
     "status": "created", 
     "invitation_sent": true
     },{
+    "id": 2,
     "email": "john@example.com", 
     "name": "john", 
     "status": "created", 
