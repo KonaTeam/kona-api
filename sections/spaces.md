@@ -1,6 +1,10 @@
 Spaces
 ========
 
+Most resources in Kona are organized into Spaces.  This API allows you to create, read, update, delete, and manage membership to spaces.
+
+When getting or creating a space it may be useful for you to receive a list of users that are also on the space.  You can do this by passing `"include_users": true` as a root level JSON node in the request.
+
 Get spaces
 ------------
 
