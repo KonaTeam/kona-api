@@ -76,9 +76,11 @@ Update space
 
 ```json
 {
-  "name": "New Space Name",
-  "details": "And some new deets",
-  "welcome_message": "And some guidance on how to use this space"
+  "spaces": [{
+    "name": "New Space Name",
+    "details": "And some new deets",
+    "welcome_message": "And some guidance on how to use this space"
+  }]
 }
 ```
 
