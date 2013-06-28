@@ -19,7 +19,7 @@ Get spaces
     "id":2,
     "name":"Neightborhood HOA",
     "details":"Where we discuss our nieghborhood",
-    "overview":"Please create a new conversation for each HOA issue to be discussed."
+    "welcome_message":"Please create a new conversation for each HOA issue to be discussed."
     "updated_at":1372091733000,
     "picture_thumb":"/kona/images/defaultproject.png"
     "href":"https://api.kona.com/spaces/2"
@@ -38,7 +38,7 @@ Get space
     "id": 2,
     "name":"Neightborhood HOA",
     "details":"Where we discuss our nieghborhood",
-    "overview":"Please create a new conversation for each HOA issue to be discussed."
+    "welcome_message":"Please create a new conversation for each HOA issue to be discussed."
     "updated_at":1372091733000,
     "picture_thumb":"/kona/images/defaultproject.png"
     "href":"https://api.kona.com/spaces/2"
@@ -57,7 +57,7 @@ Create space
     "name": "Scout Troop 703",
     "color": "#b373b3",
     "details": "This is the official space for Scout Troop 703",
-    "overview": "Anything goes but keep it clean!"
+    "welcome_message": "Anything goes but keep it clean!"
   }]
 }
 ```
@@ -74,7 +74,7 @@ Update space
 {
   "name": "New Space Name",
   "details": "And some new deets",
-  "overview": "And some guidance on how to use this space"
+  "welcome_message": "And some guidance on how to use this space"
 }
 ```
 
