@@ -19,7 +19,7 @@ Update is handled with a PUT to the resource's path.
 Upon success, `200 OK` will be returend along with the current JSON representation of the resource. If the user does not have access to update the resource, you"ll receive `403 Forbidden`.
 
 
-Delete space
+Delete resource
 ---------------
 Delete is hanled with a DELETE to the resource's path.
 Upon success, `204 No Content` will be returend. If the user does not have access to delete the resource, you"ll receive `403 Forbidden`.
