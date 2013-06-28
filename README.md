@@ -7,7 +7,7 @@ This is the official API documentation for Kona (kona.com). This is a REST API t
 Making a request
 ----------------------
 
-All API end-points start with `https://test.kona.com/api/` and are **SSL only**.  If we change the API in back-incompatible ways then we will release a new version.  Newer versions of the API will be accessible by setting the specific version in an accept header.
+All API end-points start with `https://konaservername.com/api/` and are **SSL only**.  If we change the API in back-incompatible ways then we will release a new version.  Newer versions of the API will be accessible by setting the specific version in an accept header.
 
 Making a request to create a space in curl would look like this:
 
@@ -16,7 +16,7 @@ curl \
 -d  '{ "spaces": [{ "name": "My New Space" }] }' \
 -H "Content-Type: application/json" \
 -H 'Authorization: Kona app_key:authentication_token' \
-https://test.kona.com/api/spaces 
+https://konaservername/api/spaces 
 ```
 
 The `app_key` is the code generated from your Account Management page that authorizes an application to make requests to the API.  The `authentication_token` is a user specific token that allows your client to make requests on a users behalf.  Both the `app_key` and `authentication_token` must be sent in the HTTP Authorization header with all requests to the API with the format above.
