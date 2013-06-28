@@ -22,7 +22,7 @@ The `app_key` is the code generated from your Account Management page that autho
 
 Available API sections
 ----------------------
-* [Projects](https://github.com/KonaTeam/kona-api/blob/master/sections/spaces.md)
+* [Spaces](https://github.com/KonaTeam/kona-api/blob/master/sections/spaces.md)
 
 Help us make it delightful
 ----------------------
