@@ -18,7 +18,7 @@ curl \
 http://localhost:3000/api/spaces 
 ```
 
-The `app_key` is the code generated from your Account Management page that authorizes an application to make requests to the API.  The `authentication_token` is a user specific token that allows your client to make requests on a users behalf.
+The `app_key` is the code generated from your Account Management page that authorizes an application to make requests to the API.  The `authentication_token` is a user specific token that allows your client to make requests on a users behalf.  Both the `app_key` and `authentication_token` must be sent in the HTTP Authorization header with all requests to the API with the format above.
 
 Available API sections
 ----------------------
