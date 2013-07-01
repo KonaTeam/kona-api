@@ -98,11 +98,11 @@ Upon success, `204 No Content` will be returend. If the user does not have acces
 Invite to space
 ---------------
 
-* `POST /spaces/:id/users/invite` will allow people to be invited to a space.
+* `POST /spaces/:id/participants` will allow people to be invited to a space.
 
 ```json
 {
-  "users": [{"email": "frank@example.com"},
+  "participants": [{"email": "frank@example.com"},
              {"email": "pete@example.com"}],
   "message": "Welcome to the space!"
 }
@@ -131,8 +131,8 @@ Upon success, `200 OK` will be returned along with a response that looks like th
 Remove from space
 ---------------
 
-* `DELETE /spaces/:space_id/users/:user_id` will allow users to be removed from a space.
-* `DELETE /spaces/:space_id/users/:email` will allow users to be removed from a space.
+* `DELETE /spaces/:space_id/participants/:user_id` will allow users to be removed from a space.
+* `DELETE /spaces/:space_id/participants/:email` will allow users to be removed from a space.
 
 
 Upon success, `204 No Content` will be returned.  If the user does not have permission to revoke a users space membership, you"ll receive `403 Forbidden`.
