@@ -3,7 +3,7 @@ Spaces
 
 Most resources in Kona are organized into Spaces.  This API allows you to create, read, update, delete, and manage membership to spaces.
 
-When getting or creating a space it may be useful for you to receive a list of users that are also on the space.  You can do this by passing `"include_users": true` as a root level JSON node in the request.
+When getting or creating a space it may be useful for you to receive a list of users that are in the space.  You can do this by passing `"include_users": true` as a root level JSON node in the request.
 
 Get spaces
 ------------
@@ -84,7 +84,7 @@ Update space
 }
 ```
 
-Upon success, `200 OK` will be returend along with the current JSON representation of the space (See the **Get space** endpoint for more info). If the user does not have access to update the space, you"ll receive `403 Forbidden`.
+Upon success, `200 OK` will be returned along with the current JSON representation of the space (See the **Get space** endpoint for more info). If the user does not have access to update the space, you"ll receive `403 Forbidden`.
 
 
 Delete space
