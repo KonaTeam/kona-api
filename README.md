@@ -27,6 +27,8 @@ to the API.  The `authentication_token` is a user specific token that allows you
 Both the `app_key` and `authentication_token` must be sent in the HTTP Authorization header with all requests to the API
 with the format above.
 
+See [Token](https://github.com/KonaTeam/kona-api/blob/master/sections/token.md) for more information on how to retrieve a user's authentication token.
+
 See [responses](https://github.com/KonaTeam/kona-api/blob/master/sections/responses.md) for more information on what to
 expect returned for requests.
 
@@ -40,6 +42,7 @@ We plan on adding next and prev urls to the response in order to make paging sim
 Available API sections
 ----------------------
 
+* [Token](https://github.com/KonaTeam/kona-api/blob/master/sections/token.md)
 * [Spaces](https://github.com/KonaTeam/kona-api/blob/master/sections/spaces.md)
 
 Help us make it delightful
