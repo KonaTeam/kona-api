@@ -27,8 +27,8 @@ to the API.  The `authentication_token` is a user specific token that allows you
 Both the `app_key` and `authentication_token` must be sent in the HTTP Authorization header with all requests to the API
 with the format above.
 
-See [responses](https://github.com/KonaTeam/kona-api/blob/master/sections/responses.md) for more information on what to
-expect returned for requests.
+See [responses](https://github.com/KonaTeam/kona-api/blob/master/sections/responses.md) for more information on what is
+returned for requests.
 
 Pagination
 ----------------------
