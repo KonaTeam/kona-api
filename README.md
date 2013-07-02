@@ -8,8 +8,8 @@ tokens for authentication. The API conforms to the ID based [JSON API](http://js
 Making a request
 ----------------------
 
-All API end-points start with `https://konaservername.com/api/` and are **SSL only**.  If we change the API in
-back-incompatible ways then we will release a new version.  Newer versions of the API will be accessible by setting the
+All API end-points start with `https://konaservername.com/api/` and are **SSL only**.  If we change the API such that it is no longer
+backward-compatible then we will release a new version.  Newer versions of the API will be accessible by setting the
 specific version in an accept header.
 
 Making a request to create a space in curl would look like this:
@@ -35,7 +35,7 @@ expect returned for requests.
 Pagination
 ----------------------
 
-All GET requets that return multiple results support pagination.  By default, we send back a maximum of 25 per page.
+All GET requests that return multiple results support pagination.  By default, we send back a maximum of 25 items per page.
 You may override the default by passing `{ per_page: YOUR_NUMBER, page: CURRENT_PAGE }` as root level nodes in the request.
 We plan on adding next and prev urls to the response in order to make paging simpler on the client.
 
@@ -49,4 +49,4 @@ Help us make it delightful
 ----------------------
 
 We want to help you succeed using the Kona API. If you have a specific feature request or if you found a bug, please
-use GitHub issues to report.
+use GitHub Issues to report.
