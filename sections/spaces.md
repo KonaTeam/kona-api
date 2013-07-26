@@ -3,7 +3,7 @@ Spaces
 
 Most resources in Kona are organized into spaces.  This API allows you to create, read, update, delete, and manage membership to spaces.
 
-When getting or creating a space, it may be useful to receive a list of users that are in that space.  You can do this by passing `"include_users": true` as a root level JSON node in the request.
+When getting or creating a space, it may be useful to receive a list of users that are in that space.  You can do this by passing `"include": "users"` as a root level JSON node in the request.
 
 Get spaces
 ------------
@@ -16,16 +16,18 @@ Get spaces
     "id":1,
     "name":"Just for Me",
     "details":"This space allows you to capture reminders that may not fit neatly into a space of their own. For example: "Remember the dry cleaning", "Schedule my dentist appointment", or "Need to buy a gift for the birthday party Brian is attending".",
+    "category":0,
     "updated_at":1372091715000,
-    "picture_thumb":"/kona/images/defaultproject.png"
+    "picture_thumb":"https://www.kona.com/kona/images/defaultproject.png"
     "href":"https://api.kona.com/spaces/1"
   },{
     "id":2,
     "name":"Neightborhood HOA",
     "details":"Where we discuss our nieghborhood",
+    "category":1,
     "welcome_message":"Please create a new conversation for each HOA issue to be discussed."
     "updated_at":1372091733000,
-    "picture_thumb":"/kona/images/defaultproject.png"
+    "picture_thumb":"https://www.kona.com/kona/images/defaultproject.png"
     "href":"https://api.kona.com/spaces/2"
   }]
 }
@@ -43,6 +45,7 @@ Get space
     "name":"Neightborhood HOA",
     "details":"Where we discuss our nieghborhood",
     "welcome_message":"Please create a new conversation for each HOA issue to be discussed."
+    "category":1,
     "updated_at":1372091733000,
     "picture_thumb":"/kona/images/defaultproject.png"
     "href":"https://api.kona.com/spaces/2"
