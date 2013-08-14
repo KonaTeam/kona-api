@@ -5,10 +5,27 @@ Most resources in Kona are organized into spaces.  This API allows you to create
 
 When getting or creating a space, it may be useful to receive a list of users that are in that space.  You can do this by passing `"include": "users"` as a root level JSON node in the request.
 
+Schema  <a name='schema'><a>
+------------
+```json
+{
+  "spaces": [{
+    "id": integer, readonly,
+    "name": string, required,
+    "details": string,
+    "welcome_message": string,
+    "category": integer, (0=personal, 1=work [default]),
+    "updated_at": datetime, readonly,
+    "picture_thumb":string,
+    "href": string, readonly
+  }]
+}
+```
+
 Get spaces
 ------------
 
-* `GET /spaces` will return all active spaces.
+* `GET /spaces` will return all active spaces. See [schema](#schema)
 
 ```json
 {
@@ -17,6 +34,7 @@ Get spaces
     "name":"Just for Me",
     "details":"This space allows you to capture reminders that may not fit neatly into a space of their own. For example: "Remember the dry cleaning", "Schedule my dentist appointment", or "Need to buy a gift for the birthday party Brian is attending".",
     "category":0,
+    "welcome_message":null,
     "updated_at":1372091715000,
     "picture_thumb":"https://www.kona.com/kona/images/defaultproject.png"
     "href":"https://api.kona.com/spaces/1"
@@ -25,7 +43,7 @@ Get spaces
     "name":"Neightborhood HOA",
     "details":"Where we discuss our nieghborhood",
     "category":1,
-    "welcome_message":"Please create a new conversation for each HOA issue to be discussed."
+    "welcome_message":"Please create a new conversation for each HOA issue to be discussed.",
     "updated_at":1372091733000,
     "picture_thumb":"https://www.kona.com/kona/images/defaultproject.png"
     "href":"https://api.kona.com/spaces/2"
@@ -44,7 +62,7 @@ Get space
     "id": 2,
     "name":"Neightborhood HOA",
     "details":"Where we discuss our nieghborhood",
-    "welcome_message":"Please create a new conversation for each HOA issue to be discussed."
+    "welcome_message":"Please create a new conversation for each HOA issue to be discussed.",
     "category":1,
     "updated_at":1372091733000,
     "picture_thumb":"/kona/images/defaultproject.png"
@@ -62,14 +80,13 @@ Create space
 {
   "spaces": [{
     "name": "Scout Troop 703",
-    "color": "#b373b3",
     "details": "This is the official space for Scout Troop 703",
     "welcome_message": "Anything goes but keep it clean!"
   }]
 }
 ```
 
-Upon success, `201 Created` will be returend with the location of the new space in the `Location` header along with the current JSON representation of the space (See the **Get space** endpoint for more info).
+Upon success, `201 Created` will be returned with the location of the new space in the `Location` header along with the current JSON representation of the space (See the **Get space** endpoint for more info).
 
 
 Update space
@@ -81,7 +98,7 @@ Update space
 {
   "spaces": [{
     "name": "New Space Name",
-    "details": "And some new deets",
+    "details": "And some new details",
     "welcome_message": "And some guidance on how to use this space"
   }]
 }
@@ -95,7 +112,7 @@ Delete space
 
 * `DELETE /spaces/:id` will delete the space from the id sent.
 
-Upon success, `204 No Content` will be returend. If the user does not have access to delete the space, you"ll receive `403 Forbidden`.
+Upon success, `204 No Content` will be returned. If the user does not have access to delete the space, you"ll receive `403 Forbidden`.
 
 
 Invite to space
