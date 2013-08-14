@@ -1,7 +1,8 @@
 Responses
 ========
 
-All resources are represented as JSON objects and are wrapped in an array.
+All resources are represented as JSON objects and are wrapped in an array. Each entity has a unique integer identifier "id".
+All DateTime values are represented as Unix epoch.
 
 Get resource
 ------------
