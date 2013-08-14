@@ -40,8 +40,8 @@ Get spaces
     "href":"https://api.kona.com/spaces/1"
   },{
     "id":2,
-    "name":"Neightborhood HOA",
-    "details":"Where we discuss our nieghborhood",
+    "name":"Neighborhood HOA",
+    "details":"Where we discuss our neighborhood",
     "category":1,
     "welcome_message":"Please create a new conversation for each HOA issue to be discussed.",
     "updated_at":1372091733000,
@@ -60,8 +60,8 @@ Get space
 {
   "spaces": [{
     "id": 2,
-    "name":"Neightborhood HOA",
-    "details":"Where we discuss our nieghborhood",
+    "name":"Neighborhood HOA",
+    "details":"Where we discuss our neighborhood",
     "welcome_message":"Please create a new conversation for each HOA issue to be discussed.",
     "category":1,
     "updated_at":1372091733000,
