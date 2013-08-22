@@ -8,7 +8,7 @@ tokens for authentication. The API conforms to the ID based [JSON API](http://js
 Making a request
 ----------------------
 
-All API end-points start with `https://konaservername.com/api/` and are **SSL only**.  If we change the API such that it is no longer
+All API end-points start with `https://io.kona.com/api/` and are **SSL only**.  If we change the API such that it is no longer
 backward-compatible then we will release a new version.  Newer versions of the API will be accessible by setting the
 specific version in an accept header.
 
