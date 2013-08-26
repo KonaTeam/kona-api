@@ -10,7 +10,8 @@ Making a request
 
 All API end-points start with `https://io.kona.com/api/` and are **SSL only**.  If we change the API such that it is no longer
 backward-compatible then we will release a new version.  Newer versions of the API will be accessible by setting the
-specific version in an accept header.
+specific version in an accept header. Note: Do not rely on ordinal position for response parsing; response[3].
+Rather, use the JSON keys provided; response['name'].
 
 Making a request to create a space in curl would look like this:
 
@@ -44,6 +45,8 @@ Available API sections
 
 * [Token](https://github.com/KonaTeam/kona-api/blob/master/sections/token.md)
 * [Spaces](https://github.com/KonaTeam/kona-api/blob/master/sections/spaces.md)
+* [Users](https://github.com/KonaTeam/kona-api/blob/master/sections/users.md)
+* [Tasks](https://github.com/KonaTeam/kona-api/blob/master/sections/tasks.md)
 
 Help us make it delightful
 ----------------------
