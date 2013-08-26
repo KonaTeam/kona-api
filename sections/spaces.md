@@ -3,7 +3,8 @@ Spaces
 
 Most resources in Kona are organized into spaces.  This API allows you to create, read, update, delete, and manage membership to spaces.
 
-When getting or creating a space, it may be useful to receive a list of users that are in that space.  You can do this by passing `"include": "users"` as a root level JSON node in the request.
+When getting or creating a space, it may be useful to receive a list of users that are in that space.  You can do this
+by passing `"include": "users"` as a root level JSON node in the request. See [Users schema](users.md#schema).
 
 Schema  <a name='schema'><a>
 ------------
@@ -16,7 +17,7 @@ Schema  <a name='schema'><a>
     "welcome_message": string,
     "category": integer, (0=personal, 1=work [default]),
     "updated_at": datetime, readonly,
-    "picture_thumb":string,
+    "picture_thumb": string, readonly,
     "href": string, readonly
   }]
 }
