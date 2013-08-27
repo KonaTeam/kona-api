@@ -8,7 +8,7 @@ by passing `"include": "users"` as a root level JSON node in the request. See [U
 
 Schema  <a name='schema'><a>
 ------------
-```json
+```
 {
   "spaces": [{
     "id": integer, readonly,

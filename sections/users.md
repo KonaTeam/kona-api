@@ -7,7 +7,7 @@ When getting or creating a space, it may be useful to receive a list of users th
 
 Schema  <a name='schema'><a>
 ------------
-```json
+```
 {
   "users": [{
     "id": integer, readonly,
