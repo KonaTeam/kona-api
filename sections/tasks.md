@@ -8,7 +8,7 @@ See [Users schema](users.md#schema).
 
 Schema  <a name='schema'><a>
 ------------
-```json
+`
 {
   "tasks": [{
     "id": integer, readonly,
@@ -36,7 +36,7 @@ Schema  <a name='schema'><a>
     "href": string, readonly
   }]
 }
-```
+`
 
 
 Get tasks
