@@ -12,7 +12,7 @@ In order to authenticate to this end-point the HTTP Authorization header of your
 
 Upon success, `200 OK` will be returend along with a response that looks like the following:
 
-```json
+```
 {
   "tokens": [{
     "auth_token": 'Th3Us3rsT0k3n'
