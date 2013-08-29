@@ -20,18 +20,18 @@ Schema  <a name='schema'><a>
     "creator_id": integer,
     "participant_ids": integer, writeonly,
     "editor_ids": integer, writeonly,
-    "status": integer, {:pending => 0, :in_progress => 1, :complete => 2, :group_closed => 3, :group_reopened => 4},
-    "visibility": integer, {:participants_only => 1, :public => 2},
-    "stakeholder": integer, {:just_me => 0, :group => 1, :everyone => 2},
-    "default_role": integer, {:editor => 1, :viewer => 2, :collaboration_complete => 3},
+    "status": integer, {pending: 0, in_progress: 1 [default], complete: 2, group_closed: 3, group_reopened: 4},
+    "visibility": integer, {participants_only: 1, public: 2 [default]},
+    "stakeholder": integer, {just_me: 0, group: 1 [default], everyone: 2},
+    "default_role": integer, {editor: 1, viewer: 2 [default], collaboration_complete: 3},
     "group_complete: boolean, readonly,
     "completed_at": datetime, readonly,
     "completed_by_id": integer, readonly,
     "series_id": integer, readonly, The original task id for a recurring task.
     "num_in_series": integer, readonly, The recurrence sequence for a recurring task.
-    "period": integer: {0 => "does not repeat", 1 => "day", 2 => "week", 3 => "month", 4 => "year", 5 => "weekday"},
-    "frequency": integer, {0 => "does not repeat", 1 => "every", 2 => "every other", 3 => "every third"},
-    "sel_days": integer, {0 => 'Sunday', etc.},
+    "period": integer: {none: 0, day: 1, week: 2, month: 3, year: 4, weekday: 5},
+    "frequency": integer, {none: 0, every: 1, every_other: 2, every_third: 3},
+    "sel_days": integer, {Sunday: 0, etc.},
     "series_end_at": datetime,
     "href": string, readonly
   }]
@@ -45,6 +45,7 @@ Get tasks
 
 `GET /tasks/:id` will return the specified task. See [get response](responses.md#get).
 
+`GET /tasks/:id?num_in_series=:num` will return [num] instance of the recurring task [id]. See [get response](responses.md#get).
 
 Create task
 -----------
