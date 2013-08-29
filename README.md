@@ -47,6 +47,7 @@ Available API sections
 * [Spaces](https://github.com/KonaTeam/kona-api/blob/master/sections/spaces.md)
 * [Users](https://github.com/KonaTeam/kona-api/blob/master/sections/users.md)
 * [Tasks](https://github.com/KonaTeam/kona-api/blob/master/sections/tasks.md)
+* [Calendar Events](https://github.com/KonaTeam/kona-api/blob/master/sections/calendar_events.md)
 
 Help us make it delightful
 ----------------------
