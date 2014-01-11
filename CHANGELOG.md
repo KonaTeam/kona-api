@@ -1,9 +1,12 @@
 <a name="master"></a>
 # master
+Authentication migrated to OAuth. Added [Authentication](https://github.com/KonaTeam/kona-api/blob/production/sections/authentication.md) and removed token.md.
 
-Added [Users](https://github.com/KonaTeam/kona-api/blob/master/sections/users.md)
-Added [Tasks](https://github.com/KonaTeam/kona-api/blob/master/sections/tasks.md)
-Added [Calendar Events](https://github.com/KonaTeam/kona-api/blob/master/sections/calendar_events.md)
+# 1.0.1 Added more resources
+
+Added [Users](https://github.com/KonaTeam/kona-api/blob/production/sections/users.md)
+Added [Tasks](https://github.com/KonaTeam/kona-api/blob/production/sections/tasks.md)
+Added [Calendar Events](https://github.com/KonaTeam/kona-api/blob/production/sections/calendar_events.md)
 
 <a name="1.0.0"></a>
 # 1.0.0 Initial Release (2013-08-22)

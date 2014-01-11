@@ -17,20 +17,16 @@ Making a request to create a space in curl would look like this:
 
 ```shell
 curl \
--d  '{ "spaces": [{ "name": "My New Space" }] }' \
--H "Content-Type: application/json" \
--H 'Authorization: Kona app_key:authentication_token' \
-https://konaservername/api/spaces 
+  -d  '{ "spaces": [{ "name": "My New Space" }] }' \
+  -H "Content-Type: application/json" \
+  -H 'Authorization: Bearer access_token' \
+  https://io.kona.com/api/spaces
 ```
 
-The `app_key` is the code generated from your Account Management page that authorizes an application to make requests
-to the API.  The `authentication_token` is a user specific token that allows your client to make requests on a user's behalf.
-Both the `app_key` and `authentication_token` must be sent in the HTTP Authorization header with all requests to the API
-with the format above.
+The `access_token` is the user's OAuth access token.
+See [Authentication](https://github.com/KonaTeam/kona-api/blob/production/sections/authentication.md) for more information on how to retreive an access token.
 
-See [Token](https://github.com/KonaTeam/kona-api/blob/master/sections/token.md) for more information on how to retrieve a user's authentication token.
-
-See [responses](https://github.com/KonaTeam/kona-api/blob/master/sections/responses.md) for more information on what is
+See [responses](https://github.com/KonaTeam/kona-api/blob/production/sections/responses.md) for more information on what is
 returned for requests.
 
 Pagination
@@ -43,11 +39,11 @@ We plan on adding next and prev urls to the response in order to make paging sim
 Available API sections
 ----------------------
 
-* [Token](https://github.com/KonaTeam/kona-api/blob/master/sections/token.md)
-* [Spaces](https://github.com/KonaTeam/kona-api/blob/master/sections/spaces.md)
-* [Users](https://github.com/KonaTeam/kona-api/blob/master/sections/users.md)
-* [Tasks](https://github.com/KonaTeam/kona-api/blob/master/sections/tasks.md)
-* [Calendar Events](https://github.com/KonaTeam/kona-api/blob/master/sections/calendar_events.md)
+* [Authentication](https://github.com/KonaTeam/kona-api/blob/production/sections/authentication.md)
+* [Spaces](https://github.com/KonaTeam/kona-api/blob/production/sections/spaces.md)
+* [Users](https://github.com/KonaTeam/kona-api/blob/production/sections/users.md)
+* [Tasks](https://github.com/KonaTeam/kona-api/blob/production/sections/tasks.md)
+* [Calendar Events](https://github.com/KonaTeam/kona-api/blob/production/sections/calendar_events.md)
 
 Help us make it delightful
 ----------------------
