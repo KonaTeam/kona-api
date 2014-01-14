@@ -51,7 +51,7 @@ access_token = token.refresh!.token
 export CLIENT_ID="theid"
 export CLIENT_SECRET="thesecret"
 export REDIRECT_URI="http://myserver/oauth2/callback"
-open https://io.kona.com/oauth/authorize?response_type=code&client_id=$CLIENT_ID&redirect_uri=$REDIRECT_URI
+open https://io.kona.com/oauth/authorize\?response_type\=code\&client_id\=$CLIENT_ID\&redirect_uri\=$REDIRECT_URI
 
 # Once approved, grab the 'code' url parameter returned and use it to POST to get the access token
 
