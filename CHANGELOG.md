@@ -1,5 +1,5 @@
-<a name="master"></a>
-# master
+<a name="production"></a>
+# Production
 Authentication migrated to OAuth. Added [Authentication](https://github.com/KonaTeam/kona-api/blob/production/sections/authentication.md) and removed token.md.
 
 # 1.0.1 Added more resources
