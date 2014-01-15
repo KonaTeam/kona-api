@@ -10,7 +10,7 @@ Client libraries exist for various platforms. This documentation will demonstrat
 You'll need to `gem install oauth2` if you want to follow the Ruby examples.
 Curl examples are provided. However, using a client library can simplify interacting with an OAuth provider.
 
-[Resources](authentication.md#resources) are linked at the bottom to help learn the basics of OAuth.
+The authorization endpoint is `https://io.kona.com/oauth/authorize` and the access token endpoint is `https://io.kona.com/oauth/token`. [References](authentication.md#references) are linked at the bottom to help learn the basics of OAuth.
 
 ## Getting an access token
 Using the client id, client secret and redirect uri from _Manage client applications_:
@@ -111,7 +111,7 @@ curl -H "Content-Type: application/json" -H "Authorization: Bearer $ACCESS_TOKEN
 
 ```
 
-## Resources <a name='resources'><a>
+## References <a name='references'><a>
 
 [Google OAuth 2.0] (https://developers.google.com/accounts/docs/OAuth2)
 
