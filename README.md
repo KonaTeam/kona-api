@@ -24,9 +24,9 @@ curl \
 ```
 
 The `access_token` is the user's OAuth access token.
-See [Authentication](https://github.com/KonaTeam/kona-api/blob/production/sections/authentication.md) for more information on how to retreive an access token.
+See [Authentication](sections/authentication.md) for more information on how to retreive an access token.
 
-See [responses](https://github.com/KonaTeam/kona-api/blob/production/sections/responses.md) for more information on what is
+See [responses](sections/responses.md) for more information on what is
 returned for requests.
 
 Pagination
@@ -39,11 +39,11 @@ We plan on adding next and prev urls to the response in order to make paging sim
 Available API sections
 ----------------------
 
-* [Authentication](https://github.com/KonaTeam/kona-api/blob/production/sections/authentication.md)
-* [Spaces](https://github.com/KonaTeam/kona-api/blob/production/sections/spaces.md)
-* [Users](https://github.com/KonaTeam/kona-api/blob/production/sections/users.md)
-* [Tasks](https://github.com/KonaTeam/kona-api/blob/production/sections/tasks.md)
-* [Calendar Events](https://github.com/KonaTeam/kona-api/blob/production/sections/calendar_events.md)
+* [Authentication](sections/authentication.md)
+* [Spaces](sections/spaces.md)
+* [Users](sections/users.md)
+* [Tasks](sections/tasks.md)
+* [Calendar Events](sections/calendar_events.md)
 
 Help us make it delightful
 ----------------------
