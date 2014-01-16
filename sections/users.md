@@ -25,4 +25,8 @@ Get users
 ------------
 `GET /users` will return all users you are connected with.  You may specify 'like=[string]' to match limited users.
 
-`GET /users/:id` will return the specified user. See [get response](responses.md#get).
+`GET /users/:id` will return the specified user.
+
+`GET /users/self` will return the current user which is useful after authenticating.<a name='self'></a>
+
+See [get response](responses.md#get).

@@ -1,16 +1,24 @@
 # Authentication
 
 The Kona APIs use the OAuth 2.0 protocol for authentication and authorization. OAuth 2.0 is a relatively simple protocol.
-To begin, you register your application with Kona via _Account Management_, _Manage client applications_. With the details
-from the client applications view, your client application requests an access token from Kona on behalf of the user.
-Once the user approves the request, the access token is given back to your client application. Subsequent API requests
-will pass the access token.
+[References](authentication.md#references) are linked at the bottom to help learn the basics of OAuth.
+
+First, an account administrator registers your application with Kona via _Account Management_, _Manage client applications_
+by providing a name for the application and a redirect uri. The redirect uri is the address of your site where users
+are redirected after authorizing access in Kona. A client id and client secret are generated when the client application
+is created. The redirect uri, client id and client secret are used by your application to requests access to Kona on
+behalf of a user. Once the user approves the request, an authorization code is given back to your site via the redirect uri.
+This short-lived code is used by your application to request an access token and refresh token that are unique for that user.
+Subsequent API requests will pass the access token. See the examples below.
+
+Note: The access token does expire. When it does, you can use the refresh token to request a new access token.
+See step 3 in the examples below.
 
 Client libraries exist for various platforms. This documentation will demonstrate using the [OAuth2 gem](https://github.com/intridea/oauth2) in Ruby.
 You'll need to `gem install oauth2` if you want to follow the Ruby examples.
 Curl examples are provided. However, using a client library can simplify interacting with an OAuth provider.
 
-The authorization endpoint is `https://io.kona.com/oauth/authorize` and the access token endpoint is `https://io.kona.com/oauth/token`. [References](authentication.md#references) are linked at the bottom to help learn the basics of OAuth.
+The authorization endpoint is `https://io.kona.com/oauth/authorize` and the access token endpoint is `https://io.kona.com/oauth/token`.
 
 ## Getting an access token
 Using the client id, client secret and redirect uri from _Manage client applications_:
@@ -98,7 +106,7 @@ access_token, refesh_token = store.access_token, store.refresh_token # assuming 
 
 client = OAuth2::Client.new(client_id, client_secret, site: 'https://io.kona.com')
 token = OAuth2::AccessToken.new(client, access_token, {refresh_token: refresh_token})
-response = token.get('/api/spaces')
+response = token.get('/api/users/self')
 
 ```
 
@@ -107,11 +115,12 @@ response = token.get('/api/spaces')
 export CLIENT_ID="theid"
 export CLIENT_SECRET="thesecret"
 export ACCESS_TOKEN="theaccesstoken" # retrieved from some secure store
-curl -H "Content-Type: application/json" -H "Authorization: Bearer $ACCESS_TOKEN" https://io.kona.com/api/spaces
+curl -H "Content-Type: application/json" -H "Authorization: Bearer $ACCESS_TOKEN" https://io.kona.com/api/users/self
 
 ```
 
 ## References <a name='references'><a>
+[OAuth 2 Simplified] (http://aaronparecki.com/articles/2012/07/29/1/oauth2-simplified)
 
 [Google OAuth 2.0] (https://developers.google.com/accounts/docs/OAuth2)
 
