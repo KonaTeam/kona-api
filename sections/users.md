@@ -27,6 +27,6 @@ Get users
 
 `GET /users/:id` will return the specified user.
 
-`GET /users/self` will return the current user which is useful after authenticating.<a name='self'></a>
+`GET /userinfo` will return the current user which is useful after authenticating.<a name='userinfo'></a>
 
 See [get response](responses.md#get).
