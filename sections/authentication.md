@@ -106,7 +106,7 @@ access_token, refesh_token = store.access_token, store.refresh_token # assuming 
 
 client = OAuth2::Client.new(client_id, client_secret, site: 'https://io.kona.com')
 token = OAuth2::AccessToken.new(client, access_token, {refresh_token: refresh_token})
-response = token.get('/api/users/self')
+response = token.get('/api/userinfo')
 
 ```
 
@@ -115,7 +115,7 @@ response = token.get('/api/users/self')
 export CLIENT_ID="theid"
 export CLIENT_SECRET="thesecret"
 export ACCESS_TOKEN="theaccesstoken" # retrieved from some secure store
-curl -H "Content-Type: application/json" -H "Authorization: Bearer $ACCESS_TOKEN" https://io.kona.com/api/users/self
+curl -H "Content-Type: application/json" -H "Authorization: Bearer $ACCESS_TOKEN" https://io.kona.com/api/userinfo
 
 ```
 

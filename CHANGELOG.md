@@ -1,6 +1,6 @@
 <a name="production"></a>
 # 1.0.3
-Added mechanism for user to get own info after successful authentication. See [Self](sections/users.md#self).
+Added mechanism for user to get own info after successful authentication. See [userinfo](sections/users.md#userinfo).
 
 # 1.0.2
 Authentication migrated to OAuth. Added [Authentication](sections/authentication.md) and removed token.md.
