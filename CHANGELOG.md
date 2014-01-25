@@ -1,4 +1,7 @@
 <a name="production"></a>
+# 1.0.4
+Added [Groups](sections/groups.md)
+
 # 1.0.3
 Added mechanism for user to get own info after successful authentication. See [userinfo](sections/users.md#userinfo).
 
