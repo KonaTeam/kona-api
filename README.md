@@ -41,6 +41,7 @@ Available API sections
 
 * [Authentication](sections/authentication.md)
 * [Spaces](sections/spaces.md)
+* [Groups](sections/groups.md)
 * [Users](sections/users.md)
 * [Tasks](sections/tasks.md)
 * [Calendar Events](sections/calendar_events.md)
