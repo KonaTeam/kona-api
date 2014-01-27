@@ -3,8 +3,6 @@ Calendar Events
 
 This API allows you to create, read, update, delete, and manage calendar events in spaces.
 
-To receive a list of users that are on an event, pass `"include": "participants"` as a root level JSON node in the request.
-
 Schema  <a name='schema'><a>
 ------------
 ```
