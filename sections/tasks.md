@@ -3,8 +3,6 @@ Tasks
 
 This API allows you to create, read, update, delete, and manage tasks in spaces.
 
-To receive a list of users that are on a task, pass `"include": "participants"` as a root level JSON node in the request.
-
 Schema  <a name='schema'><a>
 ------------
 ```
