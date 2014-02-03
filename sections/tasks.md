@@ -10,6 +10,7 @@ Schema  <a name='schema'><a>
   "tasks": [{
     "id": integer, readonly,
     "name": string, required,
+    "href": string, readonly,
     "location": string,
     "details": string,
     "end_at": datetime,
@@ -29,8 +30,7 @@ Schema  <a name='schema'><a>
     "period": integer: {none: 0, day: 1, week: 2, month: 3, year: 4, weekday: 5},
     "frequency": integer, {none: 0, every: 1, every_other: 2, every_third: 3},
     "sel_days": integer, {Sunday: 0, etc.},
-    "series_end_at": datetime,
-    "href": string, readonly
+    "series_end_at": datetime
   }]
 }
 ```

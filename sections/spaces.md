@@ -2,6 +2,7 @@ Spaces
 ========
 
 Most resources in Kona are organized into spaces.  This API allows you to create, read, update, delete, and manage membership to spaces.
+Templates are specialized spaces within Kona that can be used to create additional spaces.
 
 Schema  <a name='schema'><a>
 ------------
@@ -10,12 +11,14 @@ Schema  <a name='schema'><a>
   "spaces": [{
     "id": integer, readonly,
     "name": string, required,
+    "href": string, readonly,
     "details": string,
     "welcome_message": string,
     "category": integer, (0=personal, 1=work [default]),
     "updated_at": datetime, readonly,
     "picture_thumb": string, readonly,
-    "href": string, readonly
+    "template": boolean, readonly,
+    "published": boolean, readonly
   }]
 }
 ```

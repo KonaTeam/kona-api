@@ -9,8 +9,9 @@ Schema  <a name='schema'><a>
 {
   "groups": [{
     "id": integer, readonly,
-    "space_id" : integer, required on create, readonly otherwise,
     "name": string, required,
+    "href": string, readonly,
+    "space_id" : integer, required on create, readonly otherwise,
     "updated_at": datetime, readonly,
     "href": string, readonly,
     "user_ids": array of string

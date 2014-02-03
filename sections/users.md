@@ -21,7 +21,7 @@ Schema  <a name='schema'><a>
 
 Get users
 ------------
-`GET /users` will return all users you are connected with.  You may specify 'like=[string]' to match limited users.
+`GET /users` will return all users you are connected with.  You may specify `like=pattern` parameter to filter users.
 
 `GET /users/:id` will return the specified user.
 

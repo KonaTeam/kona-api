@@ -40,7 +40,9 @@ Available API sections
 ----------------------
 
 * [Authentication](sections/authentication.md)
+* [Accounts](sections/accounts.md)
 * [Spaces](sections/spaces.md)
+* [Templates](sections/templates.md)
 * [Groups](sections/groups.md)
 * [Users](sections/users.md)
 * [Tasks](sections/tasks.md)
