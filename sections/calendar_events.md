@@ -10,6 +10,7 @@ Schema  <a name='schema'><a>
   "calendar_events": [{
     "id": integer, readonly,
     "name": string, required,
+    "href": string, readonly,
     "location": string,
     "details": string,
     "all_day": boolean,
@@ -29,8 +30,7 @@ Schema  <a name='schema'><a>
     "frequency": integer, {none: 0, every: 1, every_other: 2, every_third: 3},
     "sel_days": integer, {Sunday: 0, etc.},
     "series_end_at": datetime,
-    "ics_feed_id": integer, readonly,
-    "href": string, readonly
+    "ics_feed_id": integer, readonly
   }]
 }
 ```

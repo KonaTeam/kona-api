@@ -1,4 +1,9 @@
 <a name="production"></a>
+# 1.0.5
+Added [Accounts](sections/accounts.md)
+Added [Templates](sections/templates.md)
+Updated [Spaces](sections/spaces.md) with details about templates.
+
 # 1.0.4
 Added [Groups](sections/groups.md)
 
