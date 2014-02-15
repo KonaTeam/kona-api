@@ -24,7 +24,6 @@ Get accounts
 `GET /accounts/:id` will return the specified template. See [get response](responses.md#get).
 
 Passing `include=account_add_ons` will cause the response to include the account add ons for each account:
-------------
 ```
 {
   "account_add_ons": [{
