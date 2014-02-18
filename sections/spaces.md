@@ -4,7 +4,7 @@ Spaces
 Most resources in Kona are organized into spaces.  This API allows you to create, read, update, delete, and manage membership to spaces.
 Templates are specialized spaces within Kona that can be used to create additional spaces.
 
-Schema  <a name='schema'><a>
+Schema  <a name='schema'></a>
 ------------
 ```
 {

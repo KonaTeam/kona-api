@@ -3,7 +3,7 @@ Users
 
 This API allows you to read users you are connected with in Kona.
 
-Schema  <a name='schema'><a>
+Schema  <a name='schema'></a>
 ------------
 ```
 {

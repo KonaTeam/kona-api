@@ -3,7 +3,7 @@ Accounts
 
 Accounts organize spaces for organizations.  This endpoint allows retrieval of accounts accessible for a user.
 
-Schema  <a name='schema'><a>
+Schema  <a name='schema'></a>
 ------------
 ```
 {
@@ -23,7 +23,7 @@ Get accounts
 
 `GET /accounts/:id` will return the specified template. See [get response](responses.md#get).
 
-<a name='addons'><a>Passing `include=account_add_ons` will cause the response to include the account add ons for each account:
+<a name='addons'></a>Passing `include=account_add_ons` will cause the response to include the account add ons for each account:
 ```
   "account_add_ons": [{
     "id": integer, readonly,

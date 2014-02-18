@@ -3,7 +3,7 @@ Calendar Events
 
 This API allows you to create, read, update, delete, and manage calendar events in spaces.
 
-Schema  <a name='schema'><a>
+Schema  <a name='schema'></a>
 ------------
 ```
 {

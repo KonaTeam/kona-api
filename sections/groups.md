@@ -3,7 +3,7 @@ Groups
 
 This API allows you to create, read, update, delete, and manage membership to groups within a space.
 
-Schema  <a name='schema'><a>
+Schema  <a name='schema'></a>
 ------------
 ```
 {

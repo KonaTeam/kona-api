@@ -5,7 +5,7 @@ A templates is a specialized space within Kona that can be used to create additi
 specifically for retrieving templates available for a user and optionally limited by account and other criteria.
 Template management is handled through the [spaces](spaces.md) endpoint.
 
-Schema  <a name='schema'><a>
+Schema  <a name='schema'></a>
 ------------
 ```
 {
