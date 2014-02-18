@@ -29,5 +29,6 @@ Get templates
 `GET /templates` will return all available templates. Results may be restricted by specifying the following optional parameters:
 * `account_ids=#` where # is an account_id or comma delimited list of account ids. See [accounts](accounts.md)
 * `tag=[tag]` where [tag] is a tag.
+* `add_on_type=[type]` where [type] is an add on type. See [add ons in accounts](accounts.md#addons)
 
 `GET /templates/:id` will return the specified template. See [get response](responses.md#get).
