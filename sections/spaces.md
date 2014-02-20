@@ -30,15 +30,25 @@ Get spaces
 
 `GET /spaces/:id` will return the specified space. See [get response](responses.md#get).
 
+<a name='addons'></a>Passing `include=space_account_add_ons` will cause the response to include the account add ons for the spaces. See [Account add-ons](accounts.md#addons).
+```
+  "space_account_add_ons": [{
+    "account_add_on_id": integer,
+    "meta": text
+  }]
+```
+
 
 Create space
 -----------
 `POST /spaces` will return the created space based on the JSON request sent. See [create response](responses.md#create).
-
+The `space_account_add_ons` array node is supported for create.
+To create a space from a template, include the `template_space_id` and `subscription_anchor_date` attributes to the space.
 
 Update space
 ---------------
 `PUT /spaces/:id` will update the space from the JSON parameters sent. Only attributes in the payload will be updated (patch). See [update response](responses.md#update).
+The `space_account_add_ons` array node is supported for update.
 
 
 Delete space
