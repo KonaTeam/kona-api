@@ -2,7 +2,7 @@
 # 1.0.5
 Added [Accounts](sections/accounts.md)
 Added [Templates](sections/templates.md)
-Updated [Spaces](sections/spaces.md) with details about templates.
+Updated [Spaces](sections/spaces.md) with details about templates and add-ons.
 
 # 1.0.4
 Added [Groups](sections/groups.md)
