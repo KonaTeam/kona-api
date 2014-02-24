@@ -19,9 +19,7 @@ Schema  <a name='schema'></a>
     "picture_thumb": string, readonly,
     "category": integer, (0=personal, 1=work [default]), readonly
     "tags": string, readonly,
-    "start_date": date, readonly,
-    "end_date": date, readonly,
-    "description": string, readonly
+    "template_date_type": string, readonly ('start_date', 'end_date', 'none')
   }]
 }
 ```
