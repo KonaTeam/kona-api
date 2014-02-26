@@ -12,7 +12,7 @@ Create resource  <a name='create'><a>
 -----------
 Create is handled with a POST to the resource's path.
 Upon success, `201 Created` will be returned with the location of the new resource in the `Location` header along with
-the current JSON representation of the resource.
+the current JSON representation of the resource. If an error such as a business rule violation occurs (i.e. exceeded the user's space limit),  the details  of the error can be found in the response in JSON format.
 
 
 Update resource  <a name='update'><a>

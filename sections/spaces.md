@@ -43,7 +43,7 @@ Create space
 -----------
 `POST /spaces` will return the created space based on the JSON request sent. See [create response](responses.md#create).
 The `space_account_add_ons` array node is supported for create.
-To create a space from a template, include the `template_space_id` and `subscription_anchor_date` attributes to the space.
+To create a space from a template, include the `account_id`, `template_space_id` and `subscription_anchor_date` attributes to the space.
 
 Update space
 ---------------

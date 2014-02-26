@@ -18,7 +18,7 @@ Schema  <a name='schema'></a>
     "updated_at": datetime, readonly,
     "picture_thumb": string, readonly,
     "category": integer, (0=personal, 1=work [default]), readonly
-    "tags": string, readonly,
+    "tags": array of string, readonly,
     "template_date_type": string, readonly ('start_date', 'end_date', 'none')
   }]
 }
