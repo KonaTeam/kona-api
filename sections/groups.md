@@ -14,7 +14,7 @@ Schema  <a name='schema'></a>
     "space_id" : integer, required on create, readonly otherwise,
     "updated_at": datetime, readonly,
     "href": string, readonly,
-    "user_ids": array of string
+    "user_ids": array of integer
   }]
 }
 ```
