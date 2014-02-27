@@ -12,11 +12,13 @@ Schema  <a name='schema'></a>
     "id": integer, readonly,
     "name": string, required,
     "href": string, readonly,
+    "account_id", integer, readonly except on create,
     "details": string,
     "welcome_message": string,
-    "category": integer, (0=personal, 1=work [default]),
     "updated_at": datetime, readonly,
     "picture_thumb": string, readonly,
+    "category": integer, (0=personal, 1=work [default]),
+    "space_type": integer, {0=standard, 1=default, 2=account_default, 3=open}, readonly,
     "template": boolean, readonly,
     "published": boolean, readonly
   }]
