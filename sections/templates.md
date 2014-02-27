@@ -13,6 +13,7 @@ Schema  <a name='schema'></a>
     "id": integer, readonly,
     "name": string, required,
     "href": string, readonly,
+    "account_id", integer, readonly,
     "details": string, readonly
     "overview": string, readonly
     "updated_at": datetime, readonly,
