@@ -1,4 +1,7 @@
 <a name="production"></a>
+# 1.0.6
+[Accounts](sections/accounts.md) supports 'current'
+
 # 1.0.5
 Added [Accounts](sections/accounts.md)
 Added [Templates](sections/templates.md)
