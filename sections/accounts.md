@@ -21,7 +21,9 @@ Get accounts
 ------------
 `GET /accounts` will return all available accounts.
 
-`GET /accounts/:id` will return the specified template. See [get response](responses.md#get).
+`GET /accounts/:id` will return the specified account. See [get response](responses.md#get).
+
+`GET /accounts/current` will return the account associated with the current credentials.
 
 <a name='addons'></a>Passing `include=account_add_ons` will cause the response to include the account add ons for each account.
 ```
