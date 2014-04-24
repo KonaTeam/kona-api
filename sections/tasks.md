@@ -16,24 +16,29 @@ Schema  <a name='schema'></a>
     "end_at": datetime,
     "space_id": integer,
     "creator_id": integer,
-    "participant_ids": integer, writeonly,
-    "editor_ids": integer, writeonly,
+    "participant_ids": integer array, writeonly,
+    "editor_ids": integer array, writeonly,
     "status": integer, {pending: 0, in_progress: 1 [default], complete: 2, group_closed: 3, group_reopened: 4},
     "visibility": integer, {participants_only: 1, public: 2 [default]},
     "stakeholder": integer, {just_me: 0, group: 1 [default], everyone: 2},
     "default_role": integer, {editor: 1, viewer: 2 [default], collaboration_complete: 3},
     "group_complete: boolean, readonly,
     "completed_at": datetime, readonly,
-    "completed_by_id": integer, readonly,
+    "completed_by_id": integer, readonly
+  }]
+}
+```
+
+recurring tasks support these attributes as well:
+```
     "series_id": integer, readonly, The original task id for a recurring task.
     "num_in_series": integer, readonly, The recurrence sequence for a recurring task.
     "period": integer: {none: 0, day: 1, week: 2, month: 3, year: 4, weekday: 5},
     "frequency": integer, {none: 0, every: 1, every_other: 2, every_third: 3},
     "sel_days": integer, {Sunday: 0, etc.},
     "series_end_at": datetime
-  }]
-}
 ```
+
 
 
 Get tasks
@@ -48,6 +53,7 @@ Create task
 -----------
 `POST /tasks` will return the created task based on the JSON request sent. See [create response](responses.md#create).
 
+To create a task for the "Everyone" group, set stakeholder to 2.
 
 Update task
 ---------------
