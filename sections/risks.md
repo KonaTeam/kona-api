@@ -22,7 +22,8 @@ Schema  <a name='schema'></a>
     "visibility": integer, {participants_only: 1, public: 2 [default]},
     "stakeholder": integer, {just_me: 0, group: 1 [default], everyone: 2},
     "default_role": integer, {editor: 1, viewer: 2 [default], collaboration_complete: 3},
-    "risk_type": integer, {thread: 0, opportunity: 1}
+    "risk_type": integer, {thread: 0, opportunity: 1},
+    "risk_id": integer
   }]
 }
 ```
