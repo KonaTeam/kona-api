@@ -1,7 +1,7 @@
 Risks
 ========
 
-This API allows you to create, read, update, delete, and manage risks in spaces.
+This API allows you to create, read, delete, and manage risks in spaces.
 TODO: Disclaimer about needing Risk add-on.
 
 Schema  <a name='schema'></a>
@@ -32,6 +32,8 @@ Schema  <a name='schema'></a>
 Get risks
 ------------
 `GET /risks` will return all active risks.
+
+`GET /risks?space_id=:space_id` will return all active risks for :space_id.
 
 `GET /risks/:id` will return the specified risk. See [get response](responses.md#get).
 
@@ -121,6 +123,8 @@ This will create a risk for space 9 with user 14 and group 11 as editors, user 1
   }]
 }
 ```
+
+**Note:** Kona currently does not support batch creation of risks. Make multiple API calls when creating a number of risks, with one risk per call - which should also allow you to monitor if a particular risk has been created successfully or not. 
 
 Delete risk
 ---------------
