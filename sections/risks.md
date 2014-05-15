@@ -51,13 +51,15 @@ if the first impact is Schedule, then poll_question_index: 1 corresponds to that
 continues for mitigation questions regardless if mitigation is provided. See example below.
 
 The poll_answer_index values are similarly derived from the risk matrix. Probability values correspond to
-ProbabilityImpacts 0=first RiskProbabilityImpact in matrix, etc.
-Impact values correspond to ImpactCell values *but_in_reverse_order*.
+ProbabilityImpacts 0=first RiskProbabilityImpact in the risk matrix, etc.
+Impact values correspond to ImpactCell values *but in reverse order*.
 "Negligible" is a special value that is added to the end of each list of values.
 Note: Future versions of the API will support the string value.
 
 The creator's score is also *required* to be passed up with a poll_question_index corresponding to to the last impact's
-index +1. This will have a "custom_value" that is the score. A mitigation score should follow if mitigation is provided.
+index +1. The poll_answer_index corresponds to the Threshold; e.g. 0 == the first threshold, etc.
+The custom_value that is the score.
+A mitigation score should follow if mitigation is provided following he same pattern
 
 Example providing risk and score for a matrix that defines a schedule and then cost impacts:
 ```
@@ -78,8 +80,8 @@ Example providing risk, mitigation and scores for a matrix that defines a schedu
    { "poll_question_index": 3, "poll_answer_index": 0},  # mitigation probability "Very High"
    { "poll_question_index": 4, "poll_answer_index": 5},  # mitigation schedule "Negligible"
    { "poll_question_index": 5, "poll_answer_index": 4},  # mitigation cost "Very Low"
-   { "poll_question_index": 6, "poll_answer_index": 0, "custom_value": 10}  # score
-   { "poll_question_index": 7, "poll_answer_index": 0, "custom_value": 0}   # mitigation score
+   { "poll_question_index": 6, "poll_answer_index": 1, "custom_value": 10}  # score corresponding to the second Threshold
+   { "poll_question_index": 7, "poll_answer_index": 0, "custom_value": 0}   # mitigation score corresponding to the first Threshold
    ]
 ```
 
