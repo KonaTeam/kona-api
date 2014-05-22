@@ -61,6 +61,8 @@ index +1. The poll_answer_index corresponds to the Threshold; e.g. 0 == the firs
 The custom_value that is the score.
 A mitigation score should follow if mitigation is provided following he same pattern
 
+An optional initial_comment may be sent for create.
+
 Example providing risk and score for a matrix that defines a schedule and then cost impacts:
 ```
 "new_poll_results": [
@@ -87,7 +89,7 @@ Example providing risk, mitigation and scores for a matrix that defines a schedu
 
 
 To create a risk for the "Everyone" group, set stakeholder to 2. For example, this will create a risk for space 9 that
-is assigned to Everyone and is public.
+is assigned to Everyone and is public with an initial comment.
 ```
 {
   "risks": [{
@@ -95,6 +97,7 @@ is assigned to Everyone and is public.
     "space_id": 9,
     "stakeholder": 2,
     "risk_type": 0,
+    "initial_comment": "mitigation description goes here",
     "new_poll_results": [ ... creator responses excluded for brevity ...]
   }]
 }
