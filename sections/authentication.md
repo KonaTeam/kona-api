@@ -4,15 +4,15 @@ The Kona APIs use the OAuth 2.0 protocol for authentication and authorization. O
 [References](authentication.md#references) are linked at the bottom to help learn the basics of OAuth.
 
 First, a Kona Business account administrator adds your application with Kona (under _Account Management > Edit Account > Integrations_ )
-by providing a name for the application and a redirect uri. The redirect uri is the address of your site where users
-are redirected after authorizing access in Kona. A client id and client secret are generated when the client application
-is created. The redirect uri, client id and client secret are used by your application to requests access to Kona on
+by providing a name for the application and a redirect uri. The redirect uri is the link where Kona redirects the browser to and passes an authentication code after the user approves access for your application. A client id and client secret are generated when the client application is created. The redirect uri, client id and client secret are used by your application to requests access to Kona on
 behalf of a user. Once the user approves the request, an authorization code is given back to your site via the redirect uri.
 This short-lived code is used by your application to request an access token and refresh token that are unique for that user.
 Subsequent API requests will pass the access token. See the examples below.
 
 Note: The access token does expire after a week. When it does, you can use the refresh token to request a new access token.
 See step 3 in the examples below.
+
+The "state" parameter is supported in the authentication step. If this parameter is passed along with the authentication url, this, along with the authorization code, will be included in the redirect uri you have specified. You can set any url-encoded string to it.
 
 Client libraries exist for various platforms. This documentation will demonstrate using the [OAuth2 gem](https://github.com/intridea/oauth2) in Ruby.
 You'll need to `gem install oauth2` if you want to follow the Ruby examples.
@@ -95,7 +95,9 @@ curl -i -X POST https://io.kona.com/oauth/token\?refresh_token\=$REFRESH_TOKEN\&
 
 ```
 
-## All API requests pass the access token for authentication
+## Authenticating API requests
++
++All Kona API requests need to pass the access token for authentication. Your REST call should include `Authentication : Bearer access_token` in your header.
 
 ### Ruby
 ```ruby
