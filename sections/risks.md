@@ -1,7 +1,7 @@
 Risks
 ========
 
-This API allows you to create, read, update, delete, and manage risks in spaces.
+This API allows you to create, read, delete, and manage risks in spaces.
 TODO: Disclaimer about needing Risk add-on.
 
 Schema  <a name='schema'></a>
@@ -22,7 +22,9 @@ Schema  <a name='schema'></a>
     "visibility": integer, {participants_only: 1, public: 2 [default]},
     "stakeholder": integer, {just_me: 0, group: 1 [default], everyone: 2},
     "default_role": integer, {editor: 1, viewer: 2 [default], collaboration_complete: 3},
-    "risk_type": integer, {thread: 0, opportunity: 1}
+    "risk_type": integer, {thread: 0, opportunity: 1},
+    "risk_id": string,
+    "mitigation": boolean
   }]
 }
 ```
@@ -30,6 +32,8 @@ Schema  <a name='schema'></a>
 Get risks
 ------------
 `GET /risks` will return all active risks.
+
+`GET /risks?space_id=:space_id` will return all active risks for :space_id.
 
 `GET /risks/:id` will return the specified risk. See [get response](responses.md#get).
 
@@ -43,22 +47,26 @@ provided.
 
 Every risk has a probability
 and is always poll_question_index: 0. The subsequent indexes correspond to the impacts listed in the risk matrix; e.g.
-if the first impact is Schedule, then poll_question_index: 1 corresponds to that. The poll_quesition_index series
+if the first impact is Schedule, then poll_question_index: 1 corresponds to that. The poll_question_index series
 continues for mitigation questions regardless if mitigation is provided. See example below.
 
 The poll_answer_index values are similarly derived from the risk matrix. Probability values correspond to
-ProbabilityImpacts 0=first RiskProbabilityImpact in matrix, etc.
-Impact values correspond to ImpactCell values. However 0 is reserved for "Negligible".
+ProbabilityImpacts 0=first RiskProbabilityImpact in the risk matrix, etc.
+Impact values correspond to ImpactCell values *but in reverse order*.
+"Negligible" is a special value that is added to the end of each list of values.
+Note: Future versions of the API will support the string value.
 
-The creator's score is also expected to be passed up with a poll_question_index corresponding to to the last impact's
-index +1. This will have a "custom_value" that is the score. A mitigation score should follow if mitigation is provided.
+The creator's score is also *required* to be passed up with a poll_question_index corresponding to to the last impact's
+index +1. The poll_answer_index corresponds to the Threshold; e.g. 0 == the first threshold, etc.
+The custom_value that is the score.
+A mitigation score should follow if mitigation is provided following he same pattern
 
 Example providing risk and score for a matrix that defines a schedule and then cost impacts:
 ```
 "new_poll_results": [
-   { "poll_question_index": 0, "poll_answer_index": 2},  # probability "Medium" (from Probability Impacts)
-   { "poll_question_index": 1, "poll_answer_index": 3},  # schedule "Medium"  (0=Negligible, other values from Impact Cells)
-   { "poll_question_index": 2, "poll_answer_index": 1},  # cost "Low" (0=Negligible, other values from Impact Cells)
+   { "poll_question_index": 0, "poll_answer_index": 1},  # probability "High" (from Probability Impacts)
+   { "poll_question_index": 1, "poll_answer_index": 0},  # schedule "Very High"  (5=Negligible since 5 impacts in matrix, other values from Impact Cells)
+   { "poll_question_index": 2, "poll_answer_index": 2},  # cost "Medium" (5=Negligible since 5 impacts in matrix, other values from Impact Cells)
    { "poll_question_index": 6, "poll_answer_index": 0, "custom_value": 10}  # score - note poll_question_index still 'leaves room' for mitigation
    ]
 ```
@@ -66,19 +74,20 @@ Example providing risk and score for a matrix that defines a schedule and then c
 Example providing risk, mitigation and scores for a matrix that defines a schedule and then cost impacts:
 ```
 "new_poll_results": [
-   { "poll_question_index": 0, "poll_answer_index": 2},  # probability "Medium" (from Probability Impacts)
-   { "poll_question_index": 1, "poll_answer_index": 3},  # schedule "Medium"  (0=Negligible, other values from Impact Cells)
-   { "poll_question_index": 2, "poll_answer_index": 1},  # cost "Low" (0=Negligible, other values from Impact Cells)
+   { "poll_question_index": 0, "poll_answer_index": 1},  # probability "High" (from Probability Impacts)
+   { "poll_question_index": 1, "poll_answer_index": 0},  # schedule "Very High"  (5=Negligible since 5 impacts in matrix, other values from Impact Cells)
+   { "poll_question_index": 2, "poll_answer_index": 2},  # cost "Medium" (5=Negligible since 5 impacts in matrix, other values from Impact Cells)
    { "poll_question_index": 3, "poll_answer_index": 0},  # mitigation probability "Very High"
-   { "poll_question_index": 4, "poll_answer_index": 0},  # mitigation schedule "Negligible"
-   { "poll_question_index": 5, "poll_answer_index": 0},  # mitigation cost "Negligible"
-   { "poll_question_index": 6, "poll_answer_index": 0, "custom_value": 10}  # score
-   { "poll_question_index": 7, "poll_answer_index": 0, "custom_value": 0}   # mitigation score
+   { "poll_question_index": 4, "poll_answer_index": 5},  # mitigation schedule "Negligible"
+   { "poll_question_index": 5, "poll_answer_index": 4},  # mitigation cost "Very Low"
+   { "poll_question_index": 6, "poll_answer_index": 1, "custom_value": 10}  # score corresponding to the second Threshold
+   { "poll_question_index": 7, "poll_answer_index": 0, "custom_value": 0}   # mitigation score corresponding to the first Threshold
    ]
 ```
 
 
-To create a risk for the "Everyone" group, set stakeholder to 2. For example, this will create a risk for space 9 that is assigned to Everyone and is public.
+To create a risk for the "Everyone" group, set stakeholder to 2. For example, this will create a risk for space 9 that
+is assigned to Everyone and is public.
 ```
 {
   "risks": [{
@@ -86,12 +95,12 @@ To create a risk for the "Everyone" group, set stakeholder to 2. For example, th
     "space_id": 9,
     "stakeholder": 2,
     "risk_type": 0,
-    "new_poll_results": [ ... ]
+    "new_poll_results": [ ... creator responses excluded for brevity ...]
   }]
 }
 ```
 
-This will create a risk for space 9 that is assigned to group 11 and is private.
+This will create a risk for space 9 that is assigned to group 11 and is private *with* mitigation.
 ```
 {
   "risks": [{
@@ -100,7 +109,8 @@ This will create a risk for space 9 that is assigned to group 11 and is private.
     "groups": [{"group_id": 11, "role": 1 }],
     "visibility": 1,
     "risk_type": 0,
-    "new_poll_results": [ ... ]
+    "mitigation": 1,
+    "new_poll_results": [ ... creator responses and mitigation excluded for brevity ...]
   }]
 }
 ```
@@ -115,10 +125,12 @@ This will create a risk for space 9 with user 14 and group 11 as editors, user 1
     "groups": [{"group_id": 11, "role": 1 },{"group_id": 12, "role": 2 }],
     "visibility": 1,
     "risk_type": 0,
-    "new_poll_results": [ ... ]
+    "new_poll_results": [ ... creator responses excluded for brevity ...]
   }]
 }
 ```
+
+**Note:** Kona currently does not support batch creation of risks. Make multiple API calls when creating a number of risks, with one risk per call - which should also allow you to monitor if a particular risk has been created successfully or not. 
 
 Delete risk
 ---------------
