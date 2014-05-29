@@ -61,7 +61,7 @@ index +1. The poll_answer_index corresponds to the Threshold; e.g. 0 == the firs
 The custom_value that is the score.
 A mitigation score should follow if mitigation is provided following he same pattern
 
-An optional initial_comment may be sent for create.
+An optional initial_comment may be sent for create. An optional mitigation_text may be sent for create of a risk with mitigation.
 
 Example providing risk and score for a matrix that defines a schedule and then cost impacts:
 ```
