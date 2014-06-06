@@ -12,7 +12,6 @@ Schema  <a name='schema'></a>
     "id": integer, readonly,
     "name": string, required,
     "href": string, readonly,
-    "location": string,
     "details": string,
     "space_id": integer,
     "creator_id": integer, readonly,
@@ -59,7 +58,7 @@ Note: Future versions of the API will support the string value.
 The creator's score is also *required* to be passed up with a poll_question_index corresponding to to the last impact's
 index +1. The poll_answer_index corresponds to the Threshold; e.g. 0 == the first threshold, etc.
 The custom_value that is the score.
-A mitigation score should follow if mitigation is provided following he same pattern
+A mitigation score should follow if mitigation is provided following the same pattern
 
 An optional initial_comment may be sent for create. An optional mitigation_text may be sent for create of a risk with mitigation.
 
