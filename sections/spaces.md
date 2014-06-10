@@ -78,7 +78,7 @@ Upon success, `200 OK` will be returned along with a response with the following
 
 ```json
 {
-  "users":[{
+  "participants":[{
     "id": integer,
     "email": string,
     "name": string,
