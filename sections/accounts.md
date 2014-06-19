@@ -11,7 +11,7 @@ Schema  <a name='schema'></a>
     "id": integer, readonly,
     "name": string, required,
     "href": string, readonly,
-    "account_type": integer, (0=personal, 1=pro, 2=corporate, 3=partner}, readonly
+    "account_type": integer, (personal: 0, pro: 1, corporate: 2, partner: 3}, readonly
   }]
 }
 ```
@@ -29,7 +29,7 @@ Get accounts
 ```
   "account_add_ons": [{
     "id": integer, readonly,
-    "add_on_type": integer, (0=risk), readonly,
+    "add_on_type": integer, (risk: 0), readonly,
     "user_limit": integer, readonly
   }]
 ```
