@@ -17,8 +17,8 @@ Schema  <a name='schema'></a>
     "welcome_message": string,
     "updated_at": datetime, readonly,
     "picture_thumb": string, readonly,
-    "category": integer, (0=personal, 1=work [default]),
-    "space_type": integer, {0=standard, 1=default, 2=account_default, 3=open}, readonly,
+    "category": integer, (personal: 0, work: 1 [default]),
+    "space_type": integer, {standard: 0, default: 1, account_default: 2, open: 3}, readonly,
     "template": boolean, readonly,
     "published": boolean, readonly
   }]
@@ -31,6 +31,16 @@ Get spaces
 `GET /spaces` will return all active spaces.
 
 `GET /spaces/:id` will return the specified space. See [get response](responses.md#get).
+
+<a name='participants'></a>Passing `include=participants` will cause the response to include the participants of the spaces.
+```
+  "participants": [{
+    "user_id": integer,
+    "role": integer, {owner: 1, participant: 2},
+    "status": integer, {pending: 0, accept: 1, reject: 2}
+    "updated_at": datetime
+  }]
+```
 
 <a name='addons'></a>Passing `include=space_account_add_ons` will cause the response to include the account add ons for the spaces. See [Account add-ons](accounts.md#addons).
 ```
