@@ -96,12 +96,7 @@ curl -i -X POST https://io.kona.com/oauth/token\?refresh_token\=$REFRESH_TOKEN\&
 ```
 
 ## Authenticating API requests
-<<<<<<< HEAD
-+
-+All Kona API requests need to pass the access token for authentication. Your REST call should include `Authentication : Bearer access_token` in your header.
-=======
-All Kona API requests need to pass the `access_token` for authentication by including the header `Authentication : Bearer access_token`. Access tokens have a limited lifetime identified by `expires_in` seconds. As noted in the code above, save the `refresh_tokens` in secure long-term storage and continue to use them as long as they remain valid. 
->>>>>>> master
+All Kona API requests need to pass the `access_token` for authentication by including the header `Authentication : Bearer access_token`. Access tokens have a limited lifetime identified by `expires_in` seconds. As commented in the code above, save the `refresh_tokens` in secure long-term storage and continue to use them as long as they remain valid. You will use it along with your `client_id` and `client_secret` in getting a new access token  when the old one expires ("refreshing your access token") .
 
 ### Ruby
 ```ruby
