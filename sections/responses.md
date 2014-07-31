@@ -2,7 +2,7 @@ Responses
 ========
 
 All resources are represented as JSON objects and are wrapped in an array. Each entity has a unique integer identifier "id".
-All DateTime values are represented as Unix epoch.
+All DateTime values are represented as Unix epoch. See [exceptions](exceptions.md) for the list of error responses.
 
 Get resource  <a name='get'><a>
 ------------
