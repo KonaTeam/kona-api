@@ -23,7 +23,7 @@ Get accounts
 
 `GET /accounts/:id` will return the specified account. See [get response](responses.md#get).
 
-`GET /accounts/current` will return the account associated with the current credentials.
+`GET /accounts/current` will return the account associated with the current credentials if you are a member of the account.
 
 <a name='addons'></a>Passing `include=account_add_ons` will cause the response to include the account add ons for each account.
 ```
