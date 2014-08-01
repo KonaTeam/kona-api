@@ -3,16 +3,16 @@
 The Kona APIs use the OAuth 2.0 protocol for authentication and authorization. OAuth 2.0 is a relatively simple protocol.
 [References](authentication.md#references) are linked at the bottom to help learn the basics of OAuth.
 
-First, a Kona Business account administrator adds your application with Kona (under _Account Management > Edit Account > Integrations_ )
-by providing a name for the application and a redirect uri. The redirect uri is the link where Kona redirects the browser to and passes an authentication code after the user approves access for your application. A client id and client secret are generated when the client application is created. The redirect uri, client id and client secret are used by your application to requests access to Kona on
+First, a Kona Business account administrator registers your application with their account (under _Account Management > Edit Account > Integrations_ )
+by providing a name for the application and its redirect uri. The redirect uri is the link where Kona redirects the browser to and passes an authentication code after the user approves access for your application. A client id and client secret are generated when the client application is created. The redirect uri, client id and client secret are used by your application to requests access to Kona on
 behalf of a user. Once the user approves the request, an authorization code is given back to your site via the redirect uri.
 This short-lived code is used by your application to request an access token and refresh token that are unique for that user.
 Subsequent API requests will pass the access token. See the examples below.
 
-Note: The access token does expire after a week. When it does, you can use the refresh token to request a new access token.
+Note: The access token expires after a week. When it does, you can use the refresh token to request a new access token.
 See step 3 in the examples below.
 
-The "state" parameter is supported in the authentication step. If this parameter is passed along with the authentication url, this, along with the authorization code, will be included in the redirect uri you have specified. You can set any url-encoded string to it.
+An optional "state" parameter is supported in the authentication step. If this parameter is passed along during the authentication process, this key and its url-encoded string value will be passed to the redirect uri with the authorization code.
 
 Client libraries exist for various platforms. This documentation will demonstrate using the [OAuth2 gem](https://github.com/intridea/oauth2) in Ruby.
 You'll need to `gem install oauth2` if you want to follow the Ruby examples.
@@ -34,9 +34,9 @@ redirect_uri = 'http://myserver/oauth2/callback' # this must match the uri regis
 client = OAuth2::Client.new(client_id, client_secret, site: 'https://io.kona.com')
 url = client.auth_code.authorize_url(:redirect_uri => redirect_uri)
 
-# This returns a url you will direct the user to. From this page, the Kona user will approve your client application's
-# access. Once approved, the user is redirected to redirect_uri with a 'code' url parameter. This code is short lived
-# and is used to request an access token:
+# This returns a Kona url that you will direct the user to. If the use has not logged in yet to Kona, they will be asked to log in first.
+# Then the Kona user will be asked to approve access to Kona for your application. Once approved, the user is redirected to the 'redirect_uri'
+# with a 'code' url parameter which you have to capture. This code is short lived and is used in the next step to request an access token:
 
 # Step 2, use Authentication Code to get access token
 code = 'thecodefromthecallback'
