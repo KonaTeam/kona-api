@@ -23,7 +23,10 @@ Schema  <a name='schema'></a>
     "default_role": integer, {editor: 1, viewer: 2 [default], collaboration_complete: 3},
     "risk_type": integer, {thread: 0, opportunity: 1},
     "risk_id": string,
-    "mitigation": boolean
+    "mitigation": boolean,
+    "mitigation_text", string, readonly except on create,
+    "initial_comment", string, create only,
+    "poll_results": [{ "user_id": integer, "poll_question_index": integer, "poll_answer_index": integer, "custom_value": string}], readonly
   }]
 }
 ```
@@ -59,8 +62,6 @@ The creator's score is also *required* to be passed up with a poll_question_inde
 index +1. The poll_answer_index corresponds to the Threshold; e.g. 0 == the first threshold, etc.
 The custom_value that is the score.
 A mitigation score should follow if mitigation is provided following the same pattern
-
-An optional initial_comment may be sent for create. An optional mitigation_text may be sent for create of a risk with mitigation.
 
 Example providing risk and score for a matrix that defines a schedule and then cost impacts:
 ```
