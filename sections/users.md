@@ -25,6 +25,12 @@ Get users
 
 `GET /users/:id` will return the specified user.
 
-`GET /userinfo` will return the current user which is useful after authenticating.<a name='userinfo'></a>
+`GET /userinfo` will return the current user which is useful after authenticating.<a name='userinfo'></a> Result will also include
+```
+  "current_account": {
+      "id": integer,
+      "member": boolean
+  }
+```
 
 See [get response](responses.md#get).
