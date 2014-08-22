@@ -25,7 +25,7 @@ Get users
 
 `GET /users/:id` will return the specified user.
 
-`GET /userinfo` will return the current user which is useful after authenticating.<a name='userinfo'></a> Result will also include
+`GET /userinfo` will return the current user which is useful after authenticating.<a name='userinfo'></a> Result will also include information of the current account
 ```
   "current_account": {
       "id": integer,
