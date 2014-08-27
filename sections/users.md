@@ -25,12 +25,22 @@ Get users
 
 `GET /users/:id` will return the specified user.
 
-`GET /userinfo` will return the current user which is useful after authenticating.<a name='userinfo'></a> Result will also include information of the current account
+`GET /userinfo` will return the current user which is useful after authenticating.<a name='userinfo'></a> It will also include information of the current account. Thus, its response has the following schema
 ```
-  "current_account": {
-      "id": integer,
-      "member": boolean
-  }
+  {
+  "users": [{
+    "id": integer, readonly,
+    "email": string, required,
+    "name": string,
+    "picture_thumb" :string, readonly,
+    "updated_at": datetime, readonly,
+    "href": string, readonly,
+    "current_account": {
+        "id": integer,
+        "member": boolean
+      }
+    }]
+}
 ```
 
 See [get response](responses.md#get).
