@@ -32,6 +32,8 @@ Get spaces
 
 `GET /spaces/:id` will return the specified space. See [get response](responses.md#get).
 
+<a name='filter_add_on_type'></a>Passing `add_on_type=:type` will filter spaces for the given type.
+
 <a name='participants'></a>Passing `include=participants` will cause the response to include the participants of the spaces.
 ```
   "participants": [{
