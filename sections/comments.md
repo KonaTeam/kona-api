@@ -23,7 +23,7 @@ Create comment
 Comments are always associated with another resource. To create a comment, space from a template, include the following attributes in your JSON request
 
 ```
-  "resource_type": string, ('task', 'calendar_event', 'attachment'),
+  "resource_type": string, ('task', 'calendar_event', 'attachment', 'conversation'),
   "resource_id": integer
 ```
 
