@@ -11,7 +11,8 @@ Schema  <a name='schema'></a>
     "id": integer, readonly,
     "content": string, required,
     "href": string, readonly,
-    "priority": integer, (normal: 0 [default], important: 1)
+    "priority": integer, (normal: 0 [default], important: 1),
+    "created_at": datetime, readonly
   }]
 }
 ```
