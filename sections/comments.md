@@ -34,3 +34,7 @@ Comments are always associated with another resource. To create a comment, space
   "resource_id": integer
 ```
 
+You can get the ID of a particular resource by using their corresponding REST APIs to search for it and return its ID key.
+
+Make sure to escape double-quotes and use the `<br>` tag to add a new line to the content.
+
