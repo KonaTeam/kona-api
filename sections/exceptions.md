@@ -44,3 +44,10 @@ Server Error <a name='server_error'><a>
 ------------
 
 We return this error when our servers encountered an unexpected technical problem.
+
+Malformed JSON <a name='malformed_json'><a>
+--------------
+
+We return a 400 Bad Request error when we encounter a problem parsing the JSON object in your request. By default, we respond in raw text format with the JSON string included.
+
+If you want the response as a JSON object, include "Accept: application/json" in the header of your request.
