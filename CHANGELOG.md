@@ -1,4 +1,7 @@
 <a name="production"></a>
+# 1.0.7
+Added [Comments](sections/comments.md), [Conversations](sections/conversations.md)
+
 # 1.0.6
 [Accounts](sections/accounts.md) supports 'current'
 
