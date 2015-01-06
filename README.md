@@ -49,6 +49,8 @@ Available API sections
 * [Users](sections/users.md)
 * [Tasks](sections/tasks.md)
 * [Calendar Events](sections/calendar_events.md)
+* [Conversations](sections/conversations.md)
+* [Comments](sections/comments.md)
 
 Help us make it delightful
 ----------------------
