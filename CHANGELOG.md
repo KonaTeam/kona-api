@@ -1,4 +1,7 @@
 <a name="production"></a>
+# master
+Added support for space filter in [Users](sections/users.md#get)
+
 # 1.0.7
 Added [Comments](sections/comments.md), [Conversations](sections/conversations.md)
 

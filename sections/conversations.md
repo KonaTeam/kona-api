@@ -29,6 +29,7 @@ Get conversations
 ------------
 `GET /conversations` will return all active conversations.
 
+### Filter parameters
 `GET /conversations?space_id=:space_id` will return all active conversations for :space_id.
 
 `GET /conversations/:id` will return the specified conversation. See [get response](responses.md#get).
