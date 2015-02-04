@@ -19,9 +19,14 @@ Schema  <a name='schema'></a>
 ```
 
 
-Get users
+Get users <a name='get'></a>
 ------------
-`GET /users` will return all users you are connected with.  You may specify `like=pattern` parameter to filter users.
+`GET /users` will return all users you are connected with.
+
+### Filter parameters
+`GET /users?like=:pattern` will return user's whose name contains pattern.
+
+`GET /users?space_id=:space_id` will return user's who are members of the given space.
 
 `GET /users/:id` will return the specified user.
 

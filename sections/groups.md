@@ -24,6 +24,7 @@ Get groups
 ------------
 `GET /groups` will return all active groups.
 
+### Filter parameters
 `GET /groups?space_id=:space_id` will return all active groups for :space_id.
 
 `GET /groups/:id` will return the specified group. See [get response](responses.md#get).

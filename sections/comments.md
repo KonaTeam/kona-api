@@ -20,6 +20,7 @@ Schema  <a name='schema'></a>
 
 Get comments
 -----------
+### Filter parameters
 `GET /comments?resource_type=:resource_type&resource_id=:resource_id` will return paged comments starting from most recent. See [resource identity](comments.md#resourceid).
 
 `GET /comments/:id` will return the specified comment. See [get response](responses.md#get).
