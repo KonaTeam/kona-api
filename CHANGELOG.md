@@ -2,6 +2,7 @@
 # master
 Added support for space filter in [Users](sections/users.md#get)
 Added support for like filter in [Groups](sections/groups.md#get)
+Added support for @mentions in  [Comments](sections/comments.md#post)
 
 # 1.0.7
 Added [Comments](sections/comments.md), [Conversations](sections/conversations.md)
