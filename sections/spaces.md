@@ -28,10 +28,12 @@ Schema  <a name='schema'></a>
 
 Get spaces
 ------------
-`GET /spaces` will return all active spaces.
+`GET /spaces` will return all active spaces. Spaces hidden for the current user are excluded by default.
 
 ### Filter parameters
 `GET /spaces?add_on_type=:type` will filter spaces for the given type.
+
+`GET /spaces?hidden=true` will return hidden spaces.
 
 `GET /spaces/:id` will return the specified space. See [get response](responses.md#get).
 
