@@ -1,5 +1,6 @@
 <a name="production"></a>
 # master
+Updated [Spaces](sections/spaces.md). Hidden spaces are excluded by default now.
 Added support for space filter in [Users](sections/users.md#get)
 Added support for like filter in [Groups](sections/groups.md#get)
 Added support for @mentions in  [Comments](sections/comments.md#post)
