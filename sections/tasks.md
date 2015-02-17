@@ -45,6 +45,7 @@ Get tasks
 ------------
 `GET /tasks` will return all active tasks.
 
+### Filter parameters
 `GET /tasks/:id` will return the specified task. See [get response](responses.md#get).
 
 `GET /tasks/:id?num_in_series=:num` will return [num] instance of the recurring task [id]. See [get response](responses.md#get).

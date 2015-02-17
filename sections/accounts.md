@@ -21,6 +21,7 @@ Get accounts
 ------------
 `GET /accounts` will return all available accounts.
 
+### Filter parameters
 `GET /accounts/:id` will return the specified account. See [get response](responses.md#get).
 
 `GET /accounts/current` will return the account associated with the current credentials if you are a member of the account.

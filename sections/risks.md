@@ -35,6 +35,7 @@ Get risks
 ------------
 `GET /risks` will return all active risks.
 
+### Filter parameters
 `GET /risks?space_id=:space_id` will return all active risks for :space_id.
 
 `GET /risks/:id` will return the specified risk. See [get response](responses.md#get).

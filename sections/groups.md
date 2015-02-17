@@ -20,11 +20,14 @@ Schema  <a name='schema'></a>
 ```
 
 
-Get groups
+Get groups <a name='get'></a>
 ------------
 `GET /groups` will return all active groups.
 
+### Filter parameters
 `GET /groups?space_id=:space_id` will return all active groups for :space_id.
+
+`GET /groups?like=:pattern` will return group whose name starts with pattern.
 
 `GET /groups/:id` will return the specified group. See [get response](responses.md#get).
 

@@ -41,8 +41,10 @@ recurring events support these attributes as well:
 
 Get events
 ------------
-`GET /calendar_events` will return all active events for the current month. Pass
-`{ date_range_start: [datetime], date_range_end: [datetime]}` for a different time window. Note: Paging is still in effect.
+`GET /calendar_events` will return all active events for the current month.
+
+### Filter parameters
+`GET /calendar_events?date_range_start=:start&date_range_end=:end` will limit the events to the time window. Note: Paging is still in effect.
 
 `GET /calendar_events/:id` will return the specified event. See [get response](responses.md#get).
 
