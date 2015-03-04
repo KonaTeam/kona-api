@@ -1,5 +1,9 @@
 <a name="production"></a>
 # master
+Addeded tags to response in [Tasks](sections/tasks.md), [Calendar Events](sections/calendar_events.md), [Conversations](sections/conversations.md)
+
+Updated
+# 1.0.8
 Updated [Spaces](sections/spaces.md). Hidden spaces are excluded by default now.
 Added support for space filter in [Users](sections/users.md#get)
 Added support for like filter in [Groups](sections/groups.md#get)
