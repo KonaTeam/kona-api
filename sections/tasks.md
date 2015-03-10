@@ -22,6 +22,7 @@ Schema  <a name='schema'></a>
     "visibility": integer, {participants_only: 1, public: 2 [default]},
     "stakeholder": integer, {just_me: 0, group: 1 [default], everyone: 2},
     "default_role": integer, {editor: 1, viewer: 2 [default], collaboration_complete: 3},
+    "tags": string array, readonly,
     "group_complete: boolean, readonly,
     "completed_at": datetime, readonly,
     "completed_by_id": integer, readonly
