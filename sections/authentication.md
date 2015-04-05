@@ -4,7 +4,7 @@ The Kona APIs use the OAuth 2.0 protocol for authentication and authorization. O
 [References](authentication.md#references) are linked at the bottom to help learn the basics of OAuth.
 
 First, a Kona Business account administrator registers your application with their account (under _Account Management > Edit Account > Integrations_ )
-by providing a name for the application and its redirect uri. The redirect uri is the link where Kona redirects the browser to and passes an authentication code after the user approves access for your application. A client id and client secret are generated when the client application is created. The redirect uri, client id and client secret are used by your application to requests access to Kona on
+by providing a name for the application and its redirect uri. The redirect uri is the link where Kona redirects the browser to and passes an authentication code after the user approves access for your application. A client id and client secret are generated when the client application is created. To view them, hover over the client application to make the 'Get Code' link appear and click on it. The redirect uri, client id and client secret are used by your application to requests access to Kona on
 behalf of a user. Once the user approves the request, an authorization code is given back to your site via the redirect uri.
 This short-lived code is used by your application to request an access token and refresh token that are unique for that user.
 Subsequent API requests will pass the access token. See the examples below.
