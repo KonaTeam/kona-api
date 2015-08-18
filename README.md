@@ -50,6 +50,7 @@ Available API sections
 * [Conversations](sections/conversations.md)
 * [Tasks](sections/tasks.md)
 * [Calendar Events](sections/calendar_events.md)
+* [Risks](sections/risks.md)
 * [Comments](sections/comments.md)
 
 Help us make it delightful
