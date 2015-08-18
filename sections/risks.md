@@ -22,12 +22,15 @@ Schema  <a name='schema'></a>
     "stakeholder": integer, {just_me: 0, group: 1 [default], everyone: 2},
     "default_role": integer, {editor: 1, viewer: 2 [default], collaboration_complete: 3},
     "tags": string array, readonly,
-    "risk_type": integer, {threat: 0, opportunity: 1},
+    "risk_type": integer, {threat: 0, opportunity: 1, calendar_event: 2, window: 3},
     "risk_id": string,
     "mitigation": boolean,
     "mitigation_text", string, readonly except on create,
     "initial_comment", string, create only,
+    "prevent_splitting", boolean, readonly,
     "poll_results": [{ "user_id": integer, "poll_question_index": integer, "poll_answer_index": integer, "custom_value": string}], readonly
+    "risk_window": {"prevent_splitting": boolean, "min_start": datetime, "likely_start": datetime, "max_start": datetime, "min_finish": datetime, "likely_finish": datetime, "max_finish": datetime}, readonly,
+    "risk_calendar_events": [{"enabled": boolean, "description": string, "probability": integer, "min": integer, "most_likely": integer, "max": integer}], readonly
   }]
 }
 ```
@@ -45,7 +48,9 @@ Create risk
 -----------
 `POST /risks` will return the created risk based on the JSON request sent. See [create response](responses.md#create).
 
-The new_poll_results array is expected to be passed up to contain the creator's risk consisting of
+### Threats and Opportunities ###
+
+For threats and opportunities, the new_poll_results array is expected to be passed up to contain the creator's risk consisting of
 poll_question_index & poll_answer_index which correlate to the details in the risk matrix. The risk score is also
 provided.
 
@@ -132,6 +137,49 @@ This will create a risk for space 9 with user 14 and group 11 as editors, user 1
     "risk_type": 0,
     "new_poll_results": [ ... creator responses excluded for brevity ...]
   }]
+}
+```
+
+### Risk Calendar Events ###
+For risk calendar events the **prevent_splitting** attribute is passed directly with the risk object, while the calendar event information is passed as an array under the risk_calendar_events_attibutes node.  Example:
+
+```
+{
+  "risk_calendar_event_attributes": [
+    { "enabled": true, 
+      "description": "January", 
+      "probability": 70, 
+      "min": 10, 
+      "most_likely": 50, 
+      "max": 60
+    },
+    { "enabled": true, 
+      "description": "February", 
+      "probability": 75, 
+      "min": 15, 
+      "most_likely": 25, 
+      "max": 35
+    },
+    etc...
+  ]
+}
+```
+
+
+### Risk Windows ###
+For risk windows the window information is passed under the risk_window_attibutes node.  Example:
+
+```
+{
+  "risk_window_attributes": {
+    "prevent_splitting": false, 
+    "min_start": "2015-08-17 00:00:00 -0000",
+    "likely_start": "2015-08-20 00:00:00 -0000",
+    "max_start": "2015-08-23 00:00:00 -0000",
+    "min_finish": "2015-08-22 00:00:00 -0000",
+    "likely_finish": "2015-08-25 00:00:00 -0000",
+    "max_finish": "2015-08-29 00:00:00 -0000"
+  }
 }
 ```
 
