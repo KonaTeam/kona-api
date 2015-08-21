@@ -29,7 +29,7 @@ Schema  <a name='schema'></a>
     "initial_comment", string, create only,
     "prevent_splitting", boolean, readonly,
     "poll_results": [{ "user_id": integer, "poll_question_index": integer, "poll_answer_index": integer, "custom_value": string}], readonly
-    "risk_window": {"prevent_splitting": boolean, "min_start": datetime, "likely_start": datetime, "max_start": datetime, "min_finish": datetime, "likely_finish": datetime, "max_finish": datetime}, readonly,
+    "risk_window": {"min_start": datetime, "likely_start": datetime, "max_start": datetime, "min_finish": datetime, "likely_finish": datetime, "max_finish": datetime}, readonly,
     "risk_calendar_events": [{"enabled": boolean, "description": string, "probability": integer, "min": integer, "most_likely": integer, "max": integer}], readonly
   }]
 }
@@ -145,7 +145,7 @@ For risk calendar events the **prevent_splitting** attribute is passed directly 
 
 ```
 {
-  "risk_calendar_event_attributes": [
+  "risk_calendar_events_attributes": [
     { "enabled": true, 
       "description": "January", 
       "probability": 70, 
@@ -167,12 +167,11 @@ For risk calendar events the **prevent_splitting** attribute is passed directly 
 
 
 ### Risk Windows ###
-For risk windows the window information is passed under the risk_window_attibutes node.  Example:
+For risk windows the **prevent_splitting** attribute is passed directly with the risk object, while the window information is passed under the risk_window_attributes node.  Example:
 
 ```
 {
   "risk_window_attributes": {
-    "prevent_splitting": false, 
     "min_start": "2015-08-17 00:00:00 -0000",
     "likely_start": "2015-08-20 00:00:00 -0000",
     "max_start": "2015-08-23 00:00:00 -0000",
