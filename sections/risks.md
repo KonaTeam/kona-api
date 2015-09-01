@@ -2,7 +2,7 @@ Risks
 ========
 
 This API allows you to create, read, delete, and manage risks in spaces.
-TODO: Disclaimer about needing Risk add-on.
+This is available to Business accounts with the Kona Risk add-on.
 
 Schema  <a name='schema'></a>
 ------------
@@ -22,12 +22,38 @@ Schema  <a name='schema'></a>
     "stakeholder": integer, {just_me: 0, group: 1 [default], everyone: 2},
     "default_role": integer, {editor: 1, viewer: 2 [default], collaboration_complete: 3},
     "tags": string array, readonly,
-    "risk_type": integer, {threat: 0, opportunity: 1},
+    "risk_type": integer, {threat: 0, opportunity: 1, calendar_event: 2, window: 3},
     "risk_id": string,
     "mitigation": boolean,
     "mitigation_text", string, readonly except on create,
     "initial_comment", string, create only,
-    "poll_results": [{ "user_id": integer, "poll_question_index": integer, "poll_answer_index": integer, "custom_value": string}], readonly
+    // for Threats and Opportunities
+    "poll_results": [
+        {   "user_id": integer,
+            "poll_question_index": integer,
+            "poll_answer_index": integer,
+            "custom_value": string
+        }], readonly
+    // for both Calendar Events and Risk Window
+    "prevent_splitting", boolean, readonly,
+    // for Calendar Events 
+    "risk_calendar_events": [{
+        "enabled": boolean,
+        "description": string,
+        "probability": integer,
+        "min": integer,
+        "most_likely": integer,
+        "max": integer
+        }], readonly
+    // for Risk Window
+    "risk_window": {
+        "min_start": datetime,
+        "likely_start": datetime,
+        "max_start": datetime,
+        "min_finish": datetime,
+        "likely_finish": datetime,
+        "max_finish": datetime
+    }, readonly,
   }]
 }
 ```
@@ -45,7 +71,64 @@ Create risk
 -----------
 `POST /risks` will return the created risk based on the JSON request sent. See [create response](responses.md#create).
 
-The new_poll_results array is expected to be passed up to contain the creator's risk consisting of
+The JSON payload of all risks POST calls share the same initial set of keys. Threats and opportunities must have the `new_poll_results` node. Calendar events need to have the `risk_calendar_events_attributes` node while the risk windows need to have the `risk_window_attributes`. See the following sections below discussing the details of each risk type.
+
+To create a risk for the "Everyone" group, set stakeholder to 2. For example, this will create a risk for space 9 that
+is assigned to Everyone and is public with an initial comment.
+```
+{
+  "risks": [{
+    "name": "new risk",
+    "space_id": 9,
+    "stakeholder": 2,
+    "risk_type": 0,
+    "initial_comment": "mitigation description goes here",
+    ....
+  }]
+}
+```
+
+This will create a risk for space 9 that is assigned to group 11 and is private *with* mitigation.
+```
+{
+  "risks": [{
+    "name": "new risk",
+    "space_id": 9,
+    "groups": [{"group_id": 11, "role": 1 }],
+    "visibility": 1,
+    "risk_type": 0,
+    "mitigation": true,
+    ....
+  }]
+}
+```
+
+This will create a risk for space 9 with user 14 and group 11 as editors, user 15 and group 12 as viewers and is private.
+```
+{
+  "risks": [{
+    "name": "new risk",
+    "space_id": 9,
+    "participants": [
+        {"user_id": 14, "role": 1},
+        {"user_id":15, "role": 2}
+        ],
+    "groups": [
+        {"group_id": 11, "role": 1 },
+        {"group_id": 12, "role": 2 }
+        ],
+    "visibility": 1,
+    "risk_type": 0,
+    ....
+  }]
+}
+```
+
+**Note:** Kona currently does not support batch creation of risks. Make multiple API calls when creating a number of risks, with one risk per call - this should also allow you to monitor if a particular risk has been created successfully or not.
+
+### Threats and Opportunities ###
+
+For threats and opportunities, the new_poll_results array is expected to be passed up to contain the creator's risk consisting of
 poll_question_index & poll_answer_index which correlate to the details in the risk matrix. The risk score is also
 provided.
 
@@ -55,7 +138,7 @@ if the first impact is Schedule, then poll_question_index: 1 corresponds to that
 continues for mitigation questions regardless if mitigation is provided. See example below.
 
 The poll_answer_index values are similarly derived from the risk matrix. Probability values correspond to
-ProbabilityImpacts 0=first RiskProbabilityImpact in the risk matrix, etc.
+ProbabilityImpacts, with 0 = the first RiskProbabilityImpact in the risk matrix, etc.
 Impact values correspond to ImpactCell values *but in reverse order*.
 "Negligible" is a special value that is added to the end of each list of values.
 Note: Future versions of the API will support the string value.
@@ -89,53 +172,50 @@ Example providing risk, mitigation and scores for a matrix that defines a schedu
    ]
 ```
 
+### Risk Calendar Events ###
+For risk calendar events the **prevent_splitting** attribute is passed directly with the risk, while the calendar event information is passed as an array under the risk_calendar_events_attibutes node.  Example:
 
-To create a risk for the "Everyone" group, set stakeholder to 2. For example, this will create a risk for space 9 that
-is assigned to Everyone and is public with an initial comment.
 ```
 {
-  "risks": [{
-    "name": "new risk",
-    "space_id": 9,
-    "stakeholder": 2,
-    "risk_type": 0,
-    "initial_comment": "mitigation description goes here",
-    "new_poll_results": [ ... creator responses excluded for brevity ...]
-  }]
+  "prevent_splitting": true,
+  "risk_calendar_events_attributes": [
+    { "enabled": true, 
+      "description": "January", 
+      "probability": 70, 
+      "min": 10, 
+      "most_likely": 50, 
+      "max": 60
+    },
+    { "enabled": true, 
+      "description": "February", 
+      "probability": 75, 
+      "min": 15, 
+      "most_likely": 25, 
+      "max": 35
+    },
+    etc...
+  ]
 }
 ```
 
-This will create a risk for space 9 that is assigned to group 11 and is private *with* mitigation.
+
+### Risk Windows ###
+For risk windows the **prevent_splitting** attribute is passed directly with the risk object, while the window information is passed under the risk_window_attributes node.  Example:
+
 ```
 {
-  "risks": [{
-    "name": "new risk",
-    "space_id": 9,
-    "groups": [{"group_id": 11, "role": 1 }],
-    "visibility": 1,
-    "risk_type": 0,
-    "mitigation": 1,
-    "new_poll_results": [ ... creator responses and mitigation excluded for brevity ...]
-  }]
+  "prevent_splitting": true,
+  "risk_window_attributes": {
+    "min_start": "2015-08-17 00:00:00 -0000",
+    "likely_start": "2015-08-20 00:00:00 -0000",
+    "max_start": "2015-08-23 00:00:00 -0000",
+    "min_finish": "2015-08-22 00:00:00 -0000",
+    "likely_finish": "2015-08-25 00:00:00 -0000",
+    "max_finish": "2015-08-29 00:00:00 -0000"
+  }
 }
 ```
 
-This will create a risk for space 9 with user 14 and group 11 as editors, user 15 and group 12 as viewers and is private.
-```
-{
-  "risks": [{
-    "name": "new risk",
-    "space_id": 9,
-    "participants": [{"user_id": 14, "role": 1},{"user_id":15, "role": 2}],
-    "groups": [{"group_id": 11, "role": 1 },{"group_id": 12, "role": 2 }],
-    "visibility": 1,
-    "risk_type": 0,
-    "new_poll_results": [ ... creator responses excluded for brevity ...]
-  }]
-}
-```
-
-**Note:** Kona currently does not support batch creation of risks. Make multiple API calls when creating a number of risks, with one risk per call - which should also allow you to monitor if a particular risk has been created successfully or not. 
 
 Delete risk
 ---------------
