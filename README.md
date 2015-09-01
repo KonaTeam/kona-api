@@ -38,6 +38,12 @@ All GET requests that return multiple results support pagination.  By default, w
 You may override the default by passing `{ per_page: YOUR_NUMBER, page: CURRENT_PAGE }` as root level nodes in the request.
 We plan on adding next and prev urls to the response in order to make paging simpler on the client.
 
+Date and Time
+----------------------
+
+The datetime values that we return are in Unix time format in milliseconds i.e. 13 digits. Our APIs accept datetime values in Unix time either in seconds or milliseconds. We also accept datetime values in "YYYY-MM-DD HH:mm:ss.SSS".
+
+
 Available API sections
 ----------------------
 
