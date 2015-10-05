@@ -20,6 +20,11 @@ Each API call needs to be authenticated. Something went wrong during this proces
   - Your access token might have expired and need to be refreshed. See [Authentication](authentication.md) section.
   - The access token included in the API call or your credentials are incorrect/invalid.
 
+Expired <a name='unauthenticated'><a>
+------------
+
+Your password has already expired and needs to be changed. Go to [Kona web](https://www.kona.com/users/sign_in) to update your password and try again in your API call.
+
 Unprocessable Entity <a name='unprocessable_entity'><a>
 ------------
 
