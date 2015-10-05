@@ -4,15 +4,17 @@ The Kona APIs use the OAuth 2.0 protocol for authentication and authorization. O
 [References](authentication.md#references) are linked at the bottom to help learn the basics of OAuth.
 
 First, a Kona Business account administrator registers your application with their account (under _Account Management > Edit Account > Integrations_ )
-by providing a name for the application and its redirect uri. The redirect uri is the link where Kona redirects the browser to and passes an authentication code after the user approves access for your application. A client id and client secret are generated when the client application is created. To view them, hover over the client application to make the 'Get Code' link appear and click on it. The redirect uri, client id and client secret are used by your application to requests access to Kona on
-behalf of a user. Once the user approves the request, an authorization code is given back to your site via the redirect uri.
-This short-lived code is used by your application to request an access token and refresh token that are unique for that user.
-Subsequent API requests will pass the access token. See the examples below.
+by providing a name for the application and its redirect URI. A client ID and client secret gets generated afterwards. To view them, hover over the client application to make the 'Get Code' link appear and click on it. The redirect URI, client ID and client secret are used by your application to requests access to Kona on
+behalf of a user.
+
+The process starts when you navigate to the authorization endpoint and pass your client ID, secret and redirect URI. Once the user approves the request, Kona calls back your application using the redirect URI you specified in both the request and in Kona's Account Management dialog. As an added precaution, the redirect URI you have specified in Kona should  match exactly the URI you have included in the request. Kona generates an authorization code and passes it with the callback as a URL parameter.
+Your application needs this short-lived code to request an access token and refresh token that are unique for that user and your application.
+Subsequent API requests need to have the access token in the header to authenticate the request. See the examples below.
 
 Note: The access token expires after a week. When it does, you can use the refresh token to request a new access token.
 See step 3 in the examples below.
 
-An optional "state" parameter is supported in the authentication step. If this parameter is passed along during the authentication process, this key and its url-encoded string value will be passed to the redirect uri with the authorization code.
+An optional "state" parameter is supported in the authentication step. If this parameter is passed along during the authentication process, this key and its url-encoded string value will be passed to the redirect URI with the authorization code.
 
 Client libraries exist for various platforms. This documentation will demonstrate using the [OAuth2 gem](https://github.com/intridea/oauth2) in Ruby.
 You'll need to `gem install oauth2` if you want to follow the Ruby examples.
@@ -21,7 +23,7 @@ Curl examples are provided. However, using a client library can simplify interac
 The authorization endpoint is `https://io.kona.com/oauth/authorize` and the access token endpoint is `https://io.kona.com/oauth/token`.
 
 ## Getting an access token
-Using the client id, client secret and redirect uri from _Manage client applications_:
+Using the client ID, client secret and redirect URI from _Manage client applications_:
 
 ### Ruby
 ```ruby
@@ -29,7 +31,7 @@ Using the client id, client secret and redirect uri from _Manage client applicat
 require 'oauth2'
 client_id = 'theid'
 client_secret = 'thesecret'
-redirect_uri = 'http://myserver/oauth2/callback' # this must match the uri registered in Manage client applications
+redirect_uri = 'http://myserver/oauth2/callback' # this must match the URI registered in Manage client applications
 
 client = OAuth2::Client.new(client_id, client_secret, site: 'https://io.kona.com')
 url = client.auth_code.authorize_url(:redirect_uri => redirect_uri)
