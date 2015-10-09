@@ -47,12 +47,12 @@ Schema  <a name='schema'></a>
         }], readonly
     // for Risk Window
     "risk_window": {
-        "min_start": datetime,
-        "likely_start": datetime,
-        "max_start": datetime,
-        "min_finish": datetime,
-        "likely_finish": datetime,
-        "max_finish": datetime
+        "min_start_at": datetime,
+        "likely_start_at": datetime,
+        "max_start_at": datetime,
+        "min_finish_at": datetime,
+        "likely_finish_at": datetime,
+        "max_finish_at": datetime
     }, readonly,
   }]
 }
@@ -206,12 +206,12 @@ For risk windows the **prevent_splitting** attribute is passed directly with the
 {
   "prevent_splitting": true,
   "risk_window_attributes": {
-    "min_start": "2015-08-17 00:00:00 -0000",
-    "likely_start": "2015-08-20 00:00:00 -0000",
-    "max_start": "2015-08-23 00:00:00 -0000",
-    "min_finish": "2015-08-22 00:00:00 -0000",
-    "likely_finish": "2015-08-25 00:00:00 -0000",
-    "max_finish": "2015-08-29 00:00:00 -0000"
+    "min_start_at": "2015-08-17 00:00:00 -0000",
+    "likely_start_at": "2015-08-20 00:00:00 -0000",
+    "max_start_at": "2015-08-23 00:00:00 -0000",
+    "min_finish_at": "2015-08-22 00:00:00 -0000",
+    "likely_finish_at": "2015-08-25 00:00:00 -0000",
+    "max_finish_at": "2015-08-29 00:00:00 -0000"
   }
 }
 ```
