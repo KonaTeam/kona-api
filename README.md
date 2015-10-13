@@ -41,7 +41,7 @@ We plan on adding next and prev urls to the response in order to make paging sim
 Date and Time
 ----------------------
 
-The datetime values that we return are in Unix time format in milliseconds i.e. 13 digits. Our APIs accept datetime values in Unix time either in seconds or milliseconds. We also accept datetime values in "YYYY-MM-DD HH:mm:ss.SSS".
+The datetime values that we return are in Unix time format in milliseconds i.e. 13 digits. Our APIs accept datetime values in Unix time GMT, either in seconds or milliseconds. We also accept datetime values in "YYYY-MM-DD HH:mm:ss.SSS".
 
 
 Available API sections
