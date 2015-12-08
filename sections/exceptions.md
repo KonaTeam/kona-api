@@ -50,9 +50,11 @@ Server Error <a name='server_error'><a>
 
 We return this error when our servers encountered an unexpected technical problem.
 
-Malformed JSON <a name='malformed_json'><a>
+Bad Request <a name='bad_request'><a>
 --------------
 
-We return a 400 Bad Request error when we encounter a problem parsing the JSON object in your request. By default, we respond in raw text format with the JSON string included.
+We return a 400 Bad Request error when we encounter invalid request parameters. This may depend on the resource you are working with. You must refer to the ```"details"``` component to know more. You can also refer to our knowledgebase articles in our [support site](http://support.kona.com) to know more about the resources you are working with. Feel free to [email us](mailto:support@kona.com) if you have any questions. The error response will include details about the invalid parameter(s).  
+
+We also return a 400 Bad Request error when we encounter a problem parsing the JSON object in your request. By default, we respond in raw text format with the JSON string included.
 
 If you want the response as a JSON object, include "Accept: application/json" in the header of your request.
