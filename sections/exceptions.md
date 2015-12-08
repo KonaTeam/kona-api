@@ -5,8 +5,8 @@ A JSON object is returned when an error is encountered during an API call. It ha
 
 ```json
 {
-  "problemType":"URLLinkToExceptionsPage",
-  "title":"ErrorTitle",
+  "problemType": "URLLinkToExceptionsPage",
+  "title": "ErrorTitle",
   "details":  "ProblemsDetails"
 }
 ```
@@ -58,3 +58,16 @@ We return a 400 Bad Request error when we encounter invalid request parameters. 
 We also return a 400 Bad Request error when we encounter a problem parsing the JSON object in your request. By default, we respond in raw text format with the JSON string included.
 
 If you want the response as a JSON object, include "Accept: application/json" in the header of your request.
+
+Authentication Error
+--------------
+
+In conforming with the [OAuth 2.0 Framework](https://tools.ietf.org/html/rfc6749), authentication error responses have the following JSON schema:
+
+```json
+{
+  "error": "ErrorTitle",
+  "error_description":  "ErrorDescription"
+}
+```
+Check out the value of `error_description` to get some explanation on the details of the error encountered during the authentication process.
