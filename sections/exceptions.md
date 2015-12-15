@@ -5,8 +5,8 @@ A JSON object is returned when an error is encountered during an API call. It ha
 
 ```json
 {
-  "problemType":"URLLinkToExceptionsPage",
-  "title":"ErrorTitle",
+  "problemType": "URLLinkToExceptionsPage",
+  "title": "ErrorTitle",
   "details":  "ProblemsDetails"
 }
 ```
@@ -50,9 +50,24 @@ Server Error <a name='server_error'><a>
 
 We return this error when our servers encountered an unexpected technical problem.
 
-Malformed JSON <a name='malformed_json'><a>
+Bad Request <a name='bad_request'><a>
 --------------
 
-We return a 400 Bad Request error when we encounter a problem parsing the JSON object in your request. By default, we respond in raw text format with the JSON string included.
+We return a 400 Bad Request error when we encounter invalid request parameters. This may depend on the resource you are working with. You must refer to the ```"details"``` component to know more. You can also refer to our knowledge base articles in our [support site](http://support.kona.com) to know more about the resources you are working with. Feel free to [email us](mailto:support@kona.com) if you have any questions. The error response will include details about the invalid parameter(s).
+
+We also return a 400 Bad Request error when we encounter a problem parsing the JSON object in your request. By default, we respond in raw text format with the JSON string included.
 
 If you want the response as a JSON object, include "Accept: application/json" in the header of your request.
+
+Authentication Error
+--------------
+
+In conforming with the [OAuth 2.0 Framework](https://tools.ietf.org/html/rfc6749), authentication error responses have the following JSON schema:
+
+```json
+{
+  "error": "ErrorTitle",
+  "error_description":  "ErrorDescription"
+}
+```
+Check out the value of `error_description` to get some explanation on the details of the error encountered during the authentication process.
