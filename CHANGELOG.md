@@ -1,4 +1,7 @@
 <a name="production"></a>
+# 1.0.11
+Updated Comments API to add [mentioning](sections/comments.md#mentions) using a user's email address
+
 # 1.0.10
 Started on Postman collection for APIs. Added initial set of Kona APIs
 
