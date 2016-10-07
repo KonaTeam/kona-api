@@ -2,7 +2,7 @@ Kona API
 ========
 
 This is the official API documentation for Kona (kona.com). This is a REST API that uses JSON for serialization and
-OAuth 2.0 for authentication. The API conforms to the ID based [JSON API](http://jsonapi.org/) specification.
+OAuth 2.0 for authentication. 
 
 The API is available to Kona Business accounts. To learn more about Kona Business, please visit [Kona.com](https://kona.com/business) or, if you are interested in other integrations or extensibility, feel free to email us at support@kona.com.
 
