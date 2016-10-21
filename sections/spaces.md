@@ -97,9 +97,34 @@ Upon success, `200 OK` will be returned along with a response with the following
     "id": integer,
     "email": string,
     "name": string,
-    "status": string (created | existing | resent),
+    "status": string (created | existing | resent | failed),
     "invitation_sent": boolean
   }]
+}
+```
+
+When you put in multiple email addresses in the request, make sure to check the `status` and/or `invitation_sent` attributes of each email address in the response to see if there are any validation errors encountered in a particular email address. For example, if you call the API with 3 email addresses in it and the third is not a valid email address, the hash for that particular email would look like this.
+
+```json
+{
+  "participants":[{
+    "email": "John+Doe",
+    "status": "failed",
+    "status_reason": "User Email must be a valid email address",
+    "invitation_sent": false
+  }]
+}
+```
+
+If all the email addresses in the request have failed our validation, we return an 422 exception.
+
+In some cases, you would want existing Kona users to be included automatically in a space, bypassing the invitation phase. To do so, add the `auto_accept` attribute in your POST request e.g. 
+
+```json
+{
+  "participants": [{"email": "frank@example.com"}, {"email": "pete@example.com"}],
+  "message": "Welcome to the space!",
+  "auto_accept": true
 }
 ```
 
