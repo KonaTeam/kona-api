@@ -91,7 +91,7 @@ Invite to space
 
 Upon success, `200 OK` will be returned along with a response with the following schema:
 
-```json
+```
 {
   "participants":[{
     "id": integer,
