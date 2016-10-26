@@ -25,6 +25,8 @@ Schema  <a name='schema'></a>
     "stakeholder": integer, {just_me: 0, group: 1 [default], everyone: 2},
     "default_role": integer, {editor: 1 [default], viewer: 2, collaboration_complete: 3},
     "tags": string array, readonly,
+    "updated_at": datetime, readonly,
+    "created_at": datetime, readonly,
     "ics_feed_id": integer, readonly
   }]
 }
@@ -39,6 +41,11 @@ recurring events support these attributes as well:
     "sel_days": integer, {Sunday: 0, etc.},
     "series_end_at": datetime
 ```
+
+### Sort parameters
+`GET /calendar_events?order_by=created_at` to sort the result by create date from the latest to the oldest.
+
+`GET /calendar_events?order_by=updated_at` to sort the result from the latest to the oldest based on when the calendar event's metadata (i.e name, notes, start date etc.) was last updated.
 
 Get events
 ------------
