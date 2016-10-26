@@ -46,6 +46,11 @@ Get tasks
 ------------
 `GET /tasks` will return all active tasks.
 
+### Sort parameters
+`GET /tasks?order_by=created_at` to sort the result by create date from the latest to the oldest.
+
+`GET /tasks?order_by=updated_at` to sort the result from the latest to the oldest based on when the calendar event's metadata (i.e name, notes, start date etc.) was last updated.
+
 ### Filter parameters
 `GET /tasks/:id` will return the specified task. See [get response](responses.md#get).
 
