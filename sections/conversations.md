@@ -30,6 +30,11 @@ Get conversations
 ------------
 `GET /conversations` will return all active conversations.
 
+### Sort parameters
+`GET /conversations?order_by=created_at` to sort the result by create date from the latest to the oldest.
+
+`GET /conversations?order_by=updated_at` to sort the result from the latest to the oldest based on when the calendar event's metadata (i.e name, notes, start date etc.) was last updated.
+
 ### Filter parameters
 `GET /conversations?space_id=:space_id` will return all active conversations for :space_id.
 
@@ -80,4 +85,7 @@ Delete conversation
 ---------------
 `DELETE /conversations/:id` will delete the conversation from the id sent. See [delete response](responses.md#delete)
 
+External Objects
+---------------
+You can link external resources to conversations by using the `external_objects` attribute. See the page on [external objects](external_objects.md) for more info. 
 
