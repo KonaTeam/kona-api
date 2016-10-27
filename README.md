@@ -57,6 +57,7 @@ Available API sections
 * [Tasks](sections/tasks.md)
 * [Calendar Events](sections/calendar_events.md)
 * [Comments](sections/comments.md)
+* [External Objects](sections/external_objects.md)
 
 Help us make it delightful
 ----------------------

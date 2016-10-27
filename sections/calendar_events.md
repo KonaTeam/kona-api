@@ -66,4 +66,8 @@ Delete event
 ---------------
 `DELETE /calendar_events/:id` will delete the event from the id sent. See [delete response](responses.md#delete)
 
+External Objects
+---------------
+You can link external resources to calendar events by using the `external_objects` attribute. See the page on [external objects](external_objects.md) for more info. 
+
 

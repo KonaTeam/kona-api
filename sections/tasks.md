@@ -66,4 +66,7 @@ Delete task
 ---------------
 `DELETE /tasks/:id` will delete the task from the id sent. See [delete response](responses.md#delete)
 
+External Objects
+---------------
+You can link external resources to tasks by using the `external_objects` attribute. See the page on [external objects](external_objects.md) for more info. 
 
