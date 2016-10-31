@@ -82,10 +82,12 @@ Invite to space
 ---------------
 `POST /spaces/:id/participants` will allow people to be invited to a space.
 
-```json
+```
 {
   "participants": [{"email": "frank@example.com"}, {"email": "pete@example.com"}],
-  "message": "Welcome to the space!"
+  "message": "Welcome to the space!",
+  "auto-accept" : false // automatically accepts the invite on behalf of the user when set to true. defaults to false
+  "suppress_owner_notification": false // when set to true, it does not notify the space owner when the invite API has been sent out. defaults to false
 }
 ```
 
@@ -127,6 +129,8 @@ In some cases, you would want existing Kona users to be included automatically i
   "auto_accept": true
 }
 ```
+
+By default, the space owner is notified on their global feed notification whenever the API is called. To suppress this, use the `suppress_owner_notification` attribute.
 
 Remove from space
 ---------------
