@@ -88,4 +88,3 @@ Delete conversation
 External Objects
 ---------------
 You can link external resources to conversations by using the `external_objects` attribute. See the page on [external objects](external_objects.md) for more info. 
-

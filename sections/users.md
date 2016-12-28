@@ -30,7 +30,7 @@ Get users <a name='get'></a>
 
 `GET /users/:id` will return the specified user.
 
-`GET /userinfo` will return the current user which is useful after authenticating.<a name='userinfo'></a> It will also include information of the current account. Thus, its response has the following schema
+`GET /userinfo` will return the current user which is useful after authenticating.<a name='userinfo'></a> It will also include information of the current account and the total unread count of conversations as of the time the API was called. Its response has the following schema
 ```
   {
   "users": [{
@@ -44,8 +44,13 @@ Get users <a name='get'></a>
         "id": integer,
         "member": boolean
       }
+    "unread_conversation_count": integer
     }]
 }
 ```
 
 See [get response](responses.md#get).
+
+External Objects
+---------------
+You can link external resources to users as well by using the `external_objects` attribute. See the page on [external objects](external_objects.md) for more info. 

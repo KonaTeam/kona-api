@@ -1,7 +1,7 @@
 External Objects
 ========
 
-Integrating applications can link conversations, tasks and calendar events to their own records and/or resources by using the attribute `external_objects`. This would help applications be redirected back to their own resources from an associated Kona conversation, task or calendar event.
+Integrating applications can link conversations, tasks, calendar events, users and spaces to their own records and/or resources by using the attribute `external_objects`. This would help applications be redirected back to their own resources from an associated Kona conversation, task, calendar event, user and spaces.
 
 Schema  <a name='schema'></a>
 ------------
@@ -32,6 +32,6 @@ For example, when you create a new conversation with an external object, it woul
 }
 ```
 
-When you delete an activity, its corresponding external object is also deleted. 
+When you delete an activity, space or user, its corresponding external object is also deleted. 
 
-You can also update and/or add an external object to an existing activity by sending out an update request and including an `external_object` attribute to the payload. To remove the external object of an activity, pass an empty object to the `external_object` attribute e.g. `"external_object": {}`.
+You can also update and/or add an external object to an existing resource by sending out an update request and including an `external_object` attribute to the payload. To remove the external object of a resource, pass an empty object to the `external_object` attribute e.g. `"external_object": {}`.

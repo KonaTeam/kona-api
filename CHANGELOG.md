@@ -1,7 +1,9 @@
 <a name="production"></a>
+# 1.0.13
+External objects are now also available to users and spaces. Unread conversation count is included in the `/userinfo` API 
+
 # 1.0.12
-Added documentation on activity sorting and auto accept attribute on space invites
-Added section on [external_objects](sections/external_objects.md)
+Added documentation on activity sorting and auto accept attribute on space invites.  Added a new section on [external_objects](sections/external_objects.md)
 
 # 1.0.11
 Updated Comments API to add [mentioning](sections/comments.md#mentions) using a user's email address

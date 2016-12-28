@@ -2,7 +2,9 @@ Spaces
 ========
 
 Most resources in Kona are organized into spaces.  This API allows you to create, read, update, delete, and manage membership to spaces.
-Templates are specialized spaces within Kona that can be used to create additional spaces.
+Templates are specialized spaces within Kona that can be used to create other spaces.
+
+You can also add an [external object](external_objects.md) attribute to spaces. 
 
 Schema  <a name='schema'></a>
 ------------
@@ -139,3 +141,7 @@ Remove from space
 `DELETE /spaces/:space_id/participants/:email` will allow users to be removed from a space.
 
 Upon success, `204 No Content` will be returned.  If the user does not have permission to revoke a users space membership, you"ll receive `403 Forbidden`.
+
+External Objects
+---------------
+You can also link external resources to spaces by using the `external_objects` attribute. See the page on [external objects](external_objects.md) for more info. 
