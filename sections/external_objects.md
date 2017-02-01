@@ -6,11 +6,11 @@ Integrating applications can link conversations, tasks, calendar events, users a
 Schema  <a name='schema'></a>
 ------------
 
-Add the following attribute to a conversation, calendar event or task 
+Add the following attribute to a user, space, conversation, calendar event or task 
 ```
     "external_object": {
         "id": string, required,
-        "name": string, required,
+        "data": string, required,
         "url": string, optional
     }
 ```
@@ -25,7 +25,7 @@ For example, when you create a new conversation with an external object, it woul
     "initial_comment": "This is a lucrative opportunity for us. Let's start the capture process immediately",
     "external_object": {
         "id": "AD8EDAB4-8725-4FA1-8347-DE091D600960",
-        "name": "STATEWIDE TWO WAY RADIOS",
+        "data": "STATEWIDE TWO WAY RADIOS",
         "url": "https://iq.govwin.com/neo/opportunity/view/117242"
     }
   }]
